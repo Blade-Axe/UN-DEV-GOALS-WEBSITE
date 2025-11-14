@@ -1,0 +1,20 @@
+[
+    {
+    "style": "Gentle Hatha Yoga",
+    "time": "10:00 - 11:00",
+    "focus": "Lower Back",
+    "benefits": "Brings Peace to the Mind",
+    "level": "Beginner",
+    "imageURL":"assets/yoga1.jpeg",
+    "alt": "A photo of Helen Gutu"
+    },
+    {
+    "style": "Vinyasa",
+    "time": "12:00 - 13:00",
+    "focus": "Breath and body movement",
+    "benefits": "Reduces stress",
+    "level": "Advanced",
+    "imageURL":"assets/yoga2.jpeg",
+    "alt": "A photo of Mark Eden"
+    }
+]
