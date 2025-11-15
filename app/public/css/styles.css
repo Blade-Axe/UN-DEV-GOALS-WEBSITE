@@ -9,7 +9,6 @@ body{
   color: black;
   background-color: #eff7f6;
 }
-
 header{
   color: black;
   text-align: center;
@@ -37,6 +36,7 @@ nav ul li a:hover{
   color: wheat;
    background-color: #b4184c;
 }
+
 footer{
   background-color: #a59c96;
   font-size: 0.9em;
@@ -45,25 +45,15 @@ footer{
   justify-content: center;
   color: black;
   padding: 16px;
-  margin-top: 32px;
 }
 footer a{
   color: black;
 }
-footer a:hover{
-  color: white;
-}
+
 .fa-solid.fa-bars{
   visibility: hidden;
 }
 @media only screen and (max-width:786px){
-  header{
-    height: 18vh;
-  }
-  header h1{
-    line-height: 50%;
-    display: inline-block;
-  }
   nav ul{
     display: block;
     visibility: hidden;
