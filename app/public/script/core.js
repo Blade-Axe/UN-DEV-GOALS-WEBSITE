@@ -20,15 +20,15 @@ if(document.getElementById("date")){
     newList.textContent = "Helps improve blood circulation"
 
 
-    let articleElement = document.querySelector('main article ul');
+    let articleElement = document.querySelector("main article ul");
     articleElement.insertBefore(newList, articleElement.lastElementChild);
     articleElement.removeChild(articleElement.lastElementChild)
 }
 
 let hamburger = document.getElementById("hamburger");
 
-hamburger.addEventListener('click', function(){ 
-    document.querySelector('nav ul').classList.toggle('shownav');
+hamburger.addEventListener("click", function(){ 
+    document.getElementById("nav-elements").classList.toggle("shownav");
 });
 
 

@@ -9,75 +9,79 @@ body{
   color: black;
   background-color: #eff7f6;
 }
-header{
-  color: black;
+nav{
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  background-color: #F7F7F7;
-  position: relative;
-  display: block;
+  background-color: #f3edf7;
 }
-
 nav ul{
   display: flex;
-  background-color: #d81e5b;
   align-items: center;
   justify-content: center;
 }
 nav ul li{
+  margin: 0px 20px 0px 20px;
   display: inline;
-  display: flex;
 }
 nav ul li a{
-  color: white;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  color: #49454f;
   text-decoration: none;
-  padding: 3px 8px 3px 8px;
 }
 nav ul li a:hover{
-  color: wheat;
-   background-color: #b4184c;
+  color: #49454f;
+  background-color: #caff85;
+  border-radius: 8px;
 }
 
 footer{
+  bottom: 0;
+  padding: 16px;
+  position: absolute;
+  width: 100%;
   background-color: #a59c96;
   font-size: 0.9em;
   display: flex;
   align-items: center;
   justify-content: center;
   color: black;
-  padding: 16px;
 }
 footer a{
   color: black;
 }
 
 .fa-solid.fa-bars{
-  visibility: hidden;
+  display: none;
+}
+main{
+  position: relative;
 }
 @media only screen and (max-width:786px){
   nav ul{
-    display: block;
-    visibility: hidden;
-  }
-  nav i:hover{
-    background-color: #b4184c;
-  }
-  nav ul li{
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-  }
-  #wrapper{
-    position: relative;
+    display: none;
   }
   nav{
-    position: absolute;
-    right: 10px;
-    top:20px;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+  }
+  nav ul{
+    height: 100%;
+    background-color: #f3edf7;
+  }
+  nav ul li a{
+    display: flex;
   }
   .fa-solid.fa-bars{
-    visibility: visible;
-  }
+  display: inline-block;
+}
 }
 .shownav{
-  visibility: visible;
+  display: block;
 }
