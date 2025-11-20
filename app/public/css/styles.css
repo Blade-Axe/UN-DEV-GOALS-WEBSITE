@@ -7,16 +7,18 @@
 body{
   font-family: "Funnel Sans", sans-serif;
   color: black;
-  background-color: #eff7f6;
+  background-color: #fef7ff;
 }
 nav{
+  position: relative;
   width: 100%;
   padding: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: #f3edf7;
+  background-color: #e7f7e7;
+  z-index: 999;
 }
 nav ul{
   display: flex;
@@ -24,22 +26,39 @@ nav ul{
   justify-content: center;
 }
 nav ul li{
-  margin: 0px 20px 0px 20px;
+  margin: 0px 5px 0px 5px;
   display: inline;
 }
 nav ul li a{
-  padding: 10px;
+  padding: 10px 20px 10px 20px;
   justify-content: center;
   align-items: center;
   color: #49454f;
+  font-weight: 500;
+  font-size: 20px;
   text-decoration: none;
 }
 nav ul li a:hover{
   color: #49454f;
   background-color: #caff85;
-  border-radius: 8px;
+  border-radius: 32px;
 }
-
+.nav-link.active{
+  color: #49454f;
+  background-color: #caff85;
+  border-radius: 32px;
+}
+.nav-link.active:hover{
+  background-color: #b1df74;
+}
+nav label.brand a{
+  text-decoration: none;
+  list-style: none;
+  margin: 0px 20px 0px 0px;
+  color: #49454f;
+  font-weight: 700;
+  font-size: 20px;
+}
 footer{
   bottom: 0;
   padding: 16px;
@@ -55,33 +74,50 @@ footer{
 footer a{
   color: black;
 }
+.unselectable{
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
 
 .fa-solid.fa-bars{
   display: none;
 }
-main{
-  position: relative;
-}
 @media only screen and (max-width:786px){
   nav ul{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;           /* Spans the full width */
+    background-color: #e7f7e7; /* Must add background or it will be transparent */
+    z-index: 999;          /* Ensures it covers the content below */
+    flex-direction: column; /* OPTIONAL: Stacks links vertically on mobile */
+    padding-bottom: 20px;
+    display: none;
+    padding-top: 15px;
     display: none;
   }
   nav{
-    display: inline-block;
+    display: flex;
     align-items: center;
     justify-content: center;
   }
-  nav ul{
-    height: 100%;
-    background-color: #f3edf7;
+  nav ul li{
+    display: block;
+    margin: 5px 0;
   }
   nav ul li a{
+    justify-content: center;
     display: flex;
   }
   .fa-solid.fa-bars{
-  display: inline-block;
-}
+    cursor: pointer;
+    position: absolute;
+    display: inline-block;
+    top: 25px;
+    left: 20px;
+  }
 }
 .shownav{
-  display: block;
+  display:flex;
 }

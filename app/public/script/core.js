@@ -31,7 +31,17 @@ hamburger.addEventListener("click", function(){
     document.getElementById("nav-elements").classList.toggle("shownav");
 });
 
+function navBarFix(checkWindowSize){
+    if (checkWindowSize.matches){
+        document.getElementById("nav-elements").classList.remove("shownav");
+    }
+}
 
+var checkWindowSize = window.matchMedia("(min-width: 786px)")
+navBarFix(checkWindowSize);
+checkWindowSize.addEventListener("change", function(){
+    navBarFix(checkWindowSize);
+});
 
 if(document.getElementById("myForm")){
     let myForm = document.getElementById("myForm");

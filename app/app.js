@@ -9,13 +9,18 @@ app.set('views', path.join(__dirname, 'views'));
 // Set up static file serving
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use((req, res, next) => {
+    res.locals.currentPath = req.path;
+    next();
+})
+
 // Basic Approach: Render EJS template with static data
 app.get('/', (req, res) => {
     res.render('index');
 });
 
-app.get('/schedule', (req, res) => {
-    res.render('schedule');
+app.get('/the-team', (req, res) => {
+    res.render('the-team');
 });
 
 /* 

@@ -5,7 +5,7 @@
     "focus": "Lower Back",
     "benefits": "Brings Peace to the Mind",
     "level": "Beginner",
-    "imageURL":"assets/yoga1.jpeg",
+    "imageURL":"",
     "alt": "A photo of Helen Gutu"
     },
     {
@@ -14,7 +14,7 @@
     "focus": "Breath and body movement",
     "benefits": "Reduces stress",
     "level": "Advanced",
-    "imageURL":"assets/yoga2.jpeg",
+    "imageURL":"",
     "alt": "A photo of Mark Eden"
     }
 ]
