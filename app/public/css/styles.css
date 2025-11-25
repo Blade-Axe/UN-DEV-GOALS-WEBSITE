@@ -133,6 +133,12 @@ footer a{
   display: none;
 }
 @media only screen and (max-width:786px){
+  nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+  }
   nav ul{
     position: absolute;
     top: 100%;
@@ -142,14 +148,7 @@ footer a{
     z-index: 999;          /* Ensures it covers the content below */
     flex-direction: column; /* OPTIONAL: Stacks links vertically on mobile */
     padding-bottom: 20px;
-    display: none;
     padding-top: 15px;
-    display: none;
-  }
-  nav{
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
   nav ul li{
     display: block;
@@ -174,8 +173,10 @@ footer a{
     background-color: #caff85;
     border-radius: 20px;
   }
+  .nav-main{
+    display: none;
+  }
   #nav-elements{
-    display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;

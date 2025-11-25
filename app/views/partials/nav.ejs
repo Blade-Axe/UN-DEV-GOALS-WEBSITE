@@ -4,7 +4,8 @@
             <i id="hamburger" class="fa-solid fa-bars"></i>
             <label class="brand unselectable"><a href="/">UN DEV GOALS</a></label>
         </div>
-        <div class="nav-central">
+        <div class="nav-main">
+            <div class="nav-central">
             <li class="nav-item">
                 <a class="nav-link <%= currentPath === '/' ? 'active' : '' %>" href="/">
                     Home
@@ -16,11 +17,12 @@
             <li class="nav-item">
                 <a class="nav-link <%= currentPath === '/goals' ? 'active' : '' %>" href="/goals">Goals</a>
             </li>
-        </div>
-        <div class="nav-right">
-            <li class="nav-item far-right">
-                <a class="nav-link far-right <%= currentPath === '/auth/sign-in' ? 'active' : '' %>" href="/auth/sign-in">Sign in</a>
-            </li>
+            </div>
+            <div class="nav-right">
+                <li class="nav-item far-right">
+                    <a class="nav-link far-right <%= currentPath === '/auth/sign-in' ? 'active' : '' %>" href="/auth/sign-in">Sign in</a>
+                </li>
+            </div>
         </div>
     </ul>
 </nav>
