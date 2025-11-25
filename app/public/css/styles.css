@@ -62,15 +62,15 @@ nav{
   position: relative;
   width: 100%;
   padding: 20px;
-  display: flex;
-
+  display: grid;
+  grid-template-columns: auto;
   background-color: #e7f7e7;
   z-index: 999;
 }
-nav ul{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+#nav-elements{
+  text-align: center;
+  display: grid;
+  grid-template-columns: auto auto auto;
 }
 nav ul li{
   margin: 0px 5px 0px 5px;
@@ -90,16 +90,6 @@ nav ul li a:hover{
   background-color: #caff85;
   border-radius: 32px;
 }
-.nav-link{
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-}
-.nav-item{
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-}
 .nav-link.active{
   color: #49454f;
   background-color: #caff85;
@@ -111,13 +101,10 @@ nav ul li a:hover{
 }
 nav label.brand{
   text-align: left;
-  justify-content: left;
-  align-items: center;
 }
 nav label.brand a{
   text-decoration: none;
   list-style: none;
-  margin: 0px 20px 0px 0px;
   color: #49454f;
   font-weight: 700;
   font-size: 20px;
@@ -144,11 +131,6 @@ footer a{
 }
 .fa-solid.fa-bars{
   display: none;
-}
-.nav-elements{
-  text-align: center;
-  justify-content: center;
-  align-items: center;
 }
 @media only screen and (max-width:786px){
   nav ul{
@@ -192,10 +174,13 @@ footer a{
     background-color: #caff85;
     border-radius: 20px;
   }
-  nav label.brand a{
-    margin: 0px 0px 0px 0px;
+  #nav-elements{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
   }
 }
 .shownav{
-  display:flex;
+  display: flex;
 }
