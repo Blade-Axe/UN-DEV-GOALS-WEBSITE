@@ -23,6 +23,18 @@ app.get('/the-team', (req, res) => {
     res.render('the-team');
 });
 
+app.get('/sign-in', (req, res) => {
+    res.render('sign-in');
+});
+
+app.get('/sign-out', (req, res) => {
+    res.render('log-out');
+});
+
+app.get('/sign-up', (req, res) => {
+    res.render('sign-up');
+});
+
 /* 
 Advanced Approach: Render EJS template
 with asynchronously fetched data
