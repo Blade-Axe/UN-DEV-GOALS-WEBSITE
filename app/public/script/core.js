@@ -25,15 +25,32 @@ if(document.getElementById("date")){
     articleElement.removeChild(articleElement.lastElementChild)
 }
 
-let hamburger = document.getElementById("hamburger");
+//let hamburger = document.getElementById("hamburger");
 
-hamburger.addEventListener("click", function(){ 
-    document.getElementById("nav-elements").classList.toggle("shownav");
+//hamburger.addEventListener("click", function(){ 
+//    let navCentral = document.querySelector(".nav-central");
+//    let navRight = document.querySelector(".nav-right");
+
+//    navCentral.classList.toggle("shownav");
+//    navRight.classList.toggle("shownav");
+//});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("nav-menu-container");
+
+    hamburger.addEventListener("click", function() { 
+        // Simply toggle the 'active' class
+        navMenu.classList.toggle("active");
+    });
 });
 
 function navBarFix(checkWindowSize){
     if (checkWindowSize.matches){
-        document.getElementById("nav-elements").classList.remove("shownav");
+        let navCentral = document.querySelector(".nav-central");
+        let navRight = document.querySelector(".nav-right");
+        navCentral.classList.remove("shownav");
+        navRight.classList.remove("shownav");
     }
 }
 

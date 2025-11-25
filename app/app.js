@@ -23,15 +23,7 @@ app.get('/the-team', (req, res) => {
     res.render('the-team');
 });
 
-app.get('/auth/sign-in', (req, res) => {
-    res.render('sign-in');
-});
-
-app.get('/auth/sign-out', (req, res) => {
-    res.render('sign-out');
-});
-
-app.get('/auth/sign-up', (req, res) => {
+app.get('/sign-up', (req, res) => {
     res.render('sign-up');
 });
 
