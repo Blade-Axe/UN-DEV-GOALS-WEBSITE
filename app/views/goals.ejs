@@ -7,14 +7,29 @@
     <body>
         <%- include('partials/nav.ejs'); %>
         <main>
-            <h1>Goals</h3>
-            <section>
-                <h2>Our Development Goals</h4>
-                <h3>Clean Water and sanitation</h3>
-                <p></p>
-                <h3>Climate Action</h3>
-                <p></p>
-                <h3>Affordable and Clean energy</h3>
+            <h1>Goals</h1>
+            <h2>Our Development Goals</h2>
+            <section id="goals-section">
+                <div class="goal">
+                    <div class ="goal-inner">
+                        <h3>Clean Water and Sanitation</h3>
+                        <img src="../public/assets/clean_water.png" alt="clean water">
+                    </div>
+                </div>
+
+                <div class="goal">
+                    <div class="goal-inner">
+                        <h3>Climate Action</h3>
+                        <img src="../public/assets/climate_action.png" alt="climate action">
+                    </div>
+                </div>
+
+                <div class="goal">
+                    <div class="goal-inner">
+                        <h3>Affordable and Clean Energy</h3>
+                        <img src="../public/assets/clean_energy.png" alt="clean energy">
+                    </div>
+                </div>
             </section>
         </main>
         <%- include('partials/footer.ejs'); %>
