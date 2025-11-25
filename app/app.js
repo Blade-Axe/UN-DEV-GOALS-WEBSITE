@@ -23,6 +23,10 @@ app.get('/the-team', (req, res) => {
     res.render('the-team');
 });
 
+app.get('/goals', (req, res) => {
+    res.render('goals');
+});
+
 /* 
 Advanced Approach: Render EJS template
 with asynchronously fetched data
