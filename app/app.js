@@ -23,15 +23,15 @@ app.get('/the-team', (req, res) => {
     res.render('the-team');
 });
 
-app.get('/sign-in', (req, res) => {
+app.get('/auth/sign-in', (req, res) => {
     res.render('sign-in');
 });
 
-app.get('/sign-out', (req, res) => {
-    res.render('log-out');
+app.get('/auth/sign-out', (req, res) => {
+    res.render('sign-out');
 });
 
-app.get('/sign-up', (req, res) => {
+app.get('/auth/sign-up', (req, res) => {
     res.render('sign-up');
 });
 
