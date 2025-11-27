@@ -3,11 +3,23 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  --text-colour: #49454f;
+  --text-colour-black: black;
+  --text-colour-hover: #56515c;
+  --main-background-colour: #fef7ff;
+  --sub-background-colour: white;
+  --box-shadow: rgba(0, 0, 0, 0.1);
+  --box-shadow-large: rgba(0, 0, 0, 0.2);
+  --nav-background: #e7f7e7;
+  --nav-capsule-background: #caff85;
+  --nav-capsule-background-hover: #b1df74;
+  --footer-background: #c3c3c3;
 }
 body{
   font-family: "Funnel Sans", sans-serif;
-  color: black;
-  background-color: #fef7ff;
+  color: var(--text-colour);
+  background-color: var(--main-background-colour);
 }
 
 h1, h2{
@@ -17,7 +29,7 @@ h1, h2{
 h1{
   font-size: 2.5em;
   font-weight: 700;
-  color: #49454f;
+  color: var(--text-colour);
   text-align: center;
   margin: 20px 0px 20px 0px;
 }
@@ -25,7 +37,7 @@ h1{
 h2{
   font-size: 2em;
   font-weight: 600;
-  color: #49454f;
+  color: var(--text-colour);
   text-align: center;
   margin: 15px 0px 15px 0px;
 }
@@ -33,7 +45,7 @@ h2{
 h3{
   font-size: 1.5em;
   font-weight: 500;
-  color: #252427;
+  color: var(--text-colour);
   text-align: center;
   margin: 10px 0px 10px 0px;
   display: inline-block;
@@ -47,9 +59,9 @@ h3{
 }
 
 .goal-inner{
-  background-color: #ffffff;
+  background-color: var(--sub-background-colour);
   border-radius: 16px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px var(--box-shadow);
   padding: 20px;
   text-align: center;
   width: 250px;
@@ -58,7 +70,7 @@ h3{
   }
   
 .goal:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px var(--box-shadow-large);
   transform: translateY(-5px);
   transition: 0.3s;
 }
@@ -82,7 +94,7 @@ nav{
   position: relative;
   width: 100%;
   padding: 20px;
-  background-color: #e7f7e7;
+  background-color: var(--nav-background);
   z-index: 999;
 }
 #nav-elements{
@@ -114,29 +126,29 @@ nav ul li a{
   padding: 10px 20px 10px 20px;
   justify-content: center;
   align-items: center;
-  color: #49454f;
+  color: var(--text-colour);
   font-weight: 500;
   font-size: 20px;
   text-decoration: none;
 }
 nav ul li a:hover{
-  color: #49454f;
-  background-color: #caff85;
+  color: var(--text-colour-hover);
+  background-color: var(--nav-capsule-background);
   border-radius: 32px;
 }
 .nav-link.active{
-  color: #49454f;
-  background-color: #caff85;
+  color: var(--text-colour);
+  background-color: var(--nav-capsule-background);
   border-radius: 32px;
   text-decoration: underline;
 }
 .nav-link.active:hover{
-  background-color: #b1df74;
+  background-color: var(--nav-capsule-background-hover);
 }
 nav label.brand a{
   text-decoration: none;
   list-style: none;
-  color: #49454f;
+  color: var(--text-colour);
   font-weight: 700;
   font-size: 20px;
 }
@@ -145,15 +157,12 @@ footer{
   padding: 16px;
   position: fixed;
   width: 100%;
-  background-color: #a59c96;
+  background-color: var(--footer-background);
   font-size: 0.9em;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: black;
-}
-footer a{
-  color: black;
+  color: var(--text-colour-black);
 }
 .unselectable{
   -webkit-user-select: none; /* Safari */
@@ -170,10 +179,10 @@ footer a{
   nav ul{
     top: 100%;
     left: 0;
-    width: 100%;           /* Spans the full width */
-    background-color: #e7f7e7; /* Must add background or it will be transparent */
-    z-index: 999;          /* Ensures it covers the content below */
-    flex-direction: column; /* OPTIONAL: Stacks links vertically on mobile */
+    width: 100%;          
+    background-color: var(--nav-background);
+    z-index: 999;
+    flex-direction: column;
     padding-bottom: 20px;
     padding-top: 15px;
   }
@@ -197,7 +206,7 @@ footer a{
   }
   .fa-solid.fa-bars:hover{
     transition: 0.2s;
-    background-color: #caff85;
+    background-color: var(--nav-capsule-background);
     border-radius: 20px;
   }
   #nav-elements{
