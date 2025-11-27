@@ -26,7 +26,8 @@ if(document.getElementById("date")){
 }
 
 //NAV BAR CODE
-document.addEventListener('DOMContentLoaded', () => {
+if(document.getElementById("nav-menu-container")){
+    document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById("hamburger");
     const navMenu = document.getElementById("nav-menu-container");
 
@@ -34,20 +35,21 @@ document.addEventListener('DOMContentLoaded', () => {
         // Simply toggle the 'active' class
         navMenu.classList.toggle("active");
     });
-});
+    });
 
-function navBarFix(checkWindowSize){
-    if (checkWindowSize.matches){
-        let navMenu = document.getElementById("nav-menu-container");
-        navMenu.classList.remove("active");
+    function navBarFix(checkWindowSize){
+        if (checkWindowSize.matches){
+            let navMenu = document.getElementById("nav-menu-container");
+            navMenu.classList.remove("active");
+        }
     }
-}
 
-var checkWindowSize = window.matchMedia("(min-width: 786px)")
-navBarFix(checkWindowSize);
-checkWindowSize.addEventListener("change", function(){
+    var checkWindowSize = window.matchMedia("(min-width: 786px)")
     navBarFix(checkWindowSize);
-});
+    checkWindowSize.addEventListener("change", function(){
+        navBarFix(checkWindowSize);
+    });
+}
 
 if(document.getElementById("myForm")){
     let myForm = document.getElementById("myForm");
