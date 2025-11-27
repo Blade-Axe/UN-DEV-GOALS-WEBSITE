@@ -25,16 +25,7 @@ if(document.getElementById("date")){
     articleElement.removeChild(articleElement.lastElementChild)
 }
 
-//let hamburger = document.getElementById("hamburger");
-
-//hamburger.addEventListener("click", function(){ 
-//    let navCentral = document.querySelector(".nav-central");
-//    let navRight = document.querySelector(".nav-right");
-
-//    navCentral.classList.toggle("shownav");
-//    navRight.classList.toggle("shownav");
-//});
-
+//NAV BAR CODE
 document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById("hamburger");
     const navMenu = document.getElementById("nav-menu-container");
@@ -47,10 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function navBarFix(checkWindowSize){
     if (checkWindowSize.matches){
-        let navCentral = document.querySelector(".nav-central");
-        let navRight = document.querySelector(".nav-right");
-        navCentral.classList.remove("shownav");
-        navRight.classList.remove("shownav");
+        let navMenu = document.getElementById("nav-menu-container");
+        navMenu.classList.remove("active");
     }
 }
 
