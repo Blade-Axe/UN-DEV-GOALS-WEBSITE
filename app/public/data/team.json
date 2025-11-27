@@ -1,0 +1,34 @@
+[
+    {
+        "image": "/assets/empty.png",
+        "alt": "A photo of Dj Simkus",
+        "name": "Dj Simkus",
+        "role": "Null",
+        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue ante ut sem tincidunt tincidunt.",
+        "resp": "Nulla tempor nulla urna, nec vehicula velit pellentesque ut. Sed urna mi, porta eu finibus id, pretium tincidunt quam. Integer hendrerit tellus non tempus laoreet. Aliquam erat volutpat."
+    },
+    {
+        "image": "/assets/empty.png",
+        "alt": "A photo of Kevin Bursoly",
+        "name": "Kevin Bursoly",
+        "role": "Null",
+        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue ante ut sem tincidunt tincidunt.",
+        "resp": "Nulla tempor nulla urna, nec vehicula velit pellentesque ut. Sed urna mi, porta eu finibus id, pretium tincidunt quam. Integer hendrerit tellus non tempus laoreet. Aliquam erat volutpat."
+    },
+    {
+        "image": "/assets/empty.png",
+        "alt": "A photo of Mac Bacon",
+        "name": "Mac Bacon",
+        "role": "Null",
+        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue ante ut sem tincidunt tincidunt.",
+        "resp": "Nulla tempor nulla urna, nec vehicula velit pellentesque ut. Sed urna mi, porta eu finibus id, pretium tincidunt quam. Integer hendrerit tellus non tempus laoreet. Aliquam erat volutpat."
+    },
+    {
+        "image": "/assets/empty.png",
+        "alt": "A photo of Max Smith",
+        "name": "Max Smith",
+        "role": "Null",
+        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue ante ut sem tincidunt tincidunt.",
+        "resp": "Nulla tempor nulla urna, nec vehicula velit pellentesque ut. Sed urna mi, porta eu finibus id, pretium tincidunt quam. Integer hendrerit tellus non tempus laoreet. Aliquam erat volutpat."
+    }
+]
