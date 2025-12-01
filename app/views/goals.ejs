@@ -1,37 +1,34 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-        <title>UN Goals</title>
-        <%- include('partials/headmeta.ejs'); %>
-    </head>
+  <html lang="en">
+    <%- include('partials/head'); %>
     <body>
-        <%- include('partials/nav.ejs'); %>
         <main>
-            <h1>Goals</h1>
-            <h2>Our Development Goals</h2>
+            <%- include('partials/nav'); %>
+            <h1 class="goal-h1">Goals</h1>
+            <h2 class="goal-h2">Our Development Goals</h2>
             <section id="goals-section">
                 <div class="goal">
                     <div class ="goal-inner">
-                        <h3>Clean Water and Sanitation</h3>
+                        <h3 class="goal-h3">Clean Water and Sanitation</h3>
                         <img class='goal-images' src="/assets/clean_water.png" alt="clean water">
                     </div>
                 </div>
 
                 <div class="goal">
                     <div class="goal-inner">
-                        <h3>Climate Action</h3>
+                        <h3 class="goal-h3">Climate Action</h3>
                         <img class='goal-images' src="/assets/climate_action.png" alt="climate action">
                     </div>
                 </div>
 
                 <div class="goal">
                     <div class="goal-inner">
-                        <h3>Affordable and Clean Energy</h3>
+                        <h3 class="goal-h3">Affordable and Clean Energy</h3>
                         <img class='goal-images' src="/assets/clean_energy.png" alt="clean energy">
                     </div>
                 </div>
             </section>
+            <%- include('partials/footer'); %>
         </main>
-        <%- include('partials/footer.ejs'); %>
     </body>
 </html>

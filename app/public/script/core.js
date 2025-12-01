@@ -151,3 +151,40 @@ if(document.getElementById("team-section")){
         .catch(error => console.error("Error fetching JSON data:", error));
     })
 }
+
+// Fetches JSON and makes articles for index hero element
+if(document.getElementById("hero")){
+    let teamJSON = "/data/hero.json";
+    let teamSection = document.querySelector('section');
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+        fetch(teamJSON)
+            .then(result => result.json())
+            .then (resultData =>{ console.log(resultData);
+            for (item of resultData){
+                const teamArticles = document.createElement("article");
+                const pictureElement = document.createElement("img");
+                const Heading = document.createElement("h1");
+                const Para = document.createElement("p");
+                const Button = document.createElement("button");
+
+                teamArticles.classList.add("hero");
+
+                teamSection.appendChild(teamArticles)
+                pictureElement.src = item.image;
+                pictureElement.alt = item.alt;
+                teamArticles.appendChild(pictureElement);
+
+                Heading.textContent = item.h1;
+                teamArticles.appendChild(Heading);
+
+                Para.textContent = item.para;
+                teamArticles.appendChild(Para);
+
+                Button.textContent = item.button;
+                teamArticles.appendChild(Button);
+            }
+        })
+        .catch(error => console.error("Error fetching JSON data:", error));
+    })
+}

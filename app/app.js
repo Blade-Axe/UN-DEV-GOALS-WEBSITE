@@ -16,19 +16,19 @@ app.use((req, res, next) => {
 
 // Basic Approach: Render EJS template with static data
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', {title: 'UN DEV GOALS'});
 });
 
 app.get('/the-team', (req, res) => {
-    res.render('the-team');
+    res.render('the-team', {title: 'THE TEAM'});
 });
 
 app.get('/sign-up', (req, res) => {
-    res.render('sign-up');
+    res.render('sign-up', {title: 'SIGN UP'});
 });
 
 app.get('/goals', (req, res) => {
-    res.render('goals');
+    res.render('goals', {title: 'GOALS'});
 });
 
 

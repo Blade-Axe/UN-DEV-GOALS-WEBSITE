@@ -1,14 +1,13 @@
 <!DOCTYPE html>
   <html lang="en">
-    <head>
-        <title>UN Goals</title>
-        <%- include('partials/headmeta.ejs'); %>
-    </head>
+    <%- include('partials/head'); %>
     <body>
-        <%- include('partials/nav.ejs'); %>
         <main class="index-content">
-            <%- include('partials/main-page-template.ejs'); %>
+            <div id="content-wrap">
+                <%- include('partials/nav'); %>
+                <%- include('partials/hero'); %>
+                <%- include('partials/footer'); %>
+            </div>
         </main>
-        <%- include('partials/footer.ejs'); %>
     </body>
 </html>
