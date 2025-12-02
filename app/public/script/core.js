@@ -188,3 +188,53 @@ if(document.getElementById("hero")){
         .catch(error => console.error("Error fetching JSON data:", error));
     })
 }
+
+// Fetch JSON and build the Goals section dynamically
+if (document.getElementById("goals-section")) {
+
+    const fileJSON = "/data/goals.json";
+    const goalsSection = document.getElementById("goals-section");
+    const titleH1 = document.getElementById("goal-title");
+    const subtitleH2 = document.getElementById("goal-subtitle");
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+        fetch(fileJSON)
+            .then(res => res.json())
+            .then(data => {
+
+                const goals = data[0]; // your single object
+
+                // Fill H1 and H2 dynamically
+                titleH1.textContent = goals.h1;
+                subtitleH2.textContent = goals.h2;
+
+                // Loop 1–3 to build each goal card
+                for (let i = 1; i <= 3; i++) {
+
+                    const goalDiv = document.createElement("div");
+                    goalDiv.classList.add("goal");
+
+                    const innerDiv = document.createElement("div");
+                    innerDiv.classList.add("goal-inner");
+
+                    const heading = document.createElement("h3");
+                    heading.classList.add("goal-h3");
+                    heading.textContent = goals[`h3_${i}`];
+
+                    const img = document.createElement("img");
+                    img.classList.add("goal-images");
+                    img.src = goals[`image_${i}`];
+                    img.alt = goals[`alt_${i}`];
+
+                    innerDiv.appendChild(heading);
+                    innerDiv.appendChild(img);
+                    goalDiv.appendChild(innerDiv);
+
+                    goalsSection.appendChild(goalDiv);
+                }
+
+            })
+            .catch(err => console.error("Error loading JSON:", err));
+    });
+}

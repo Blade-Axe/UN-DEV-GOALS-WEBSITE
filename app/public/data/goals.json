@@ -1,0 +1,18 @@
+[
+  {
+    "image_1": "/assets/clean_water.png",
+    "image_2": "/assets/climate_action.png",
+    "image_3": "/assets/clean_energy.png",
+
+    "alt_1": "Image of clean water",
+    "alt_2": "Image of climate action",
+    "alt_3": "Image of clean energy",
+
+    "h1": "Goals",
+    "h2": "Our Development Goals",
+
+    "h3_1": "Clean Water & Sanitation",
+    "h3_2": "Climate Action",
+    "h3_3": "Affordable & Clean Energy"
+  }
+]
