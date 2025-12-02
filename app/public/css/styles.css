@@ -43,7 +43,7 @@ h1.goal-h1{
   font-weight: 700;
   color: var(--text-colour);
   text-align: center;
-  margin: 20px 0px 20px 0px;
+  margin: 20px 0px 0px 0px;
 }
 
 h2.goal-h2{
@@ -51,7 +51,7 @@ h2.goal-h2{
   font-weight: 600;
   color: var(--text-colour);
   text-align: center;
-  margin: 15px 0px 15px 0px;
+  margin: 15px 0px 0px 0px;
 }
 
 h3.goal-h3{
@@ -61,6 +61,20 @@ h3.goal-h3{
   text-align: center;
   margin: 10px 0px 10px 0px;
   display: inline-block;
+}
+
+.goal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  padding: 30px;
+}
+
+.goal-info{
+  display: block;
+  font-size: 1em;
 }
 
 .goal-images{
@@ -74,14 +88,14 @@ h3.goal-h3{
   background-color: var(--sub-background-colour);
   border-radius: 16px;
   box-shadow: 0 4px 8px var(--box-shadow);
-  padding: 20px;
+  padding-top: 5px;
   text-align: center;
   width: 250px;
   transition: 0.3s;
   cursor: pointer;
 }
   
-.goal:hover {
+.goal-inner:hover {
   box-shadow: 0 8px 16px var(--box-shadow-large);
   transform: translateY(-5px);
   transition: 0.3s;
@@ -90,6 +104,30 @@ h3.goal-h3{
 .goal:hover h3,
 .goal:hover img {
   transform: translateY(0);
+}
+
+.goal-button {
+  position: static; /* override global absolute button rule so it flows in document */
+  display: inline-block;
+  padding: 1em 2.1em 1.1em;
+  border-radius: 4px;
+  margin: 12px auto 8px; /* centers and places button below the image */
+  border: none;
+  background-color: var(--nav-capsule-background);
+  color: #000000;
+  font-weight: 800;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  text-align: center;
+  box-shadow: 0em -0.2rem 0em var(--nav-capsule-background-hover) inset;
+  transition: color 0.2s ease-in-out;
+}
+
+.goal-button:hover{
+  background-color: transparent;
+  color: var(--text-colour);
+  border: 3px solid var(--nav-capsule-background-hover);
+  cursor: pointer;
 }
 
 #goals-section{

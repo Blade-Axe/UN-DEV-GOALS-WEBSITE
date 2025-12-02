@@ -206,13 +206,11 @@ if (document.getElementById("goals-section")) {
             .then(res => res.json())
             .then(data => {
 
-                const goals = data[0]; // your single object
-
-                // Fill H1 and H2 dynamically
+                const goals = data[0];
                 titleH1.textContent = goals.h1;
                 subtitleH2.textContent = goals.h2;
 
-                // Loop 1–3 to build each goal card
+                // Loop 3 times to create goal divs
                 for (let i = 1; i <= 3; i++) {
 
                     const goalDiv = document.createElement("div");
@@ -230,14 +228,40 @@ if (document.getElementById("goals-section")) {
                     img.src = goals[`image_${i}`];
                     img.alt = goals[`alt_${i}`];
 
+                    const Button = document.createElement("button");
+                    Button.classList.add("goal-button");
+
+                    // Set button text and safe link lookups with fallbacks
+                    const buttonText = goals[`button_${i}`] || goals.button || 'Learn more';
+                    const buttonLink = goals[`button-link_${i}`] || goals[`button_link_${i}`] || goals[`buttonLink_${i}`] || goals['button-link'] || null;
+
                     innerDiv.appendChild(heading);
                     innerDiv.appendChild(img);
                     goalDiv.appendChild(innerDiv);
+
+                    // Optional information paragraph if present in JSON
+                    const informationText = goals[`info_${i}`] || goals[`information_${i}`] || '';
+                    if (informationText) {
+                        const information = document.createElement("p");
+                        information.textContent = informationText;
+                        goalDiv.appendChild(information);
+                    }
+
+                    Button.textContent = buttonText;
+                    // Append button to the goalDiv (was incorrectly using Articles)
+                    goalDiv.appendChild(Button);
+
+                    if (buttonLink) {
+                        Button.addEventListener('click', () => {
+                            window.location.href = buttonLink;
+                        });
+                    }
 
                     goalsSection.appendChild(goalDiv);
                 }
 
             })
+            //catch errors with json fetch
             .catch(err => console.error("Error loading JSON:", err));
     });
 }
