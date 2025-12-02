@@ -32,7 +32,6 @@ if(document.getElementById("nav-menu-container")){
     const navMenu = document.getElementById("nav-menu-container");
 
     hamburger.addEventListener("click", function() { 
-        // Simply toggle the 'active' class
         navMenu.classList.toggle("active");
     });
     });
@@ -154,35 +153,39 @@ if(document.getElementById("team-section")){
 
 // Fetches JSON and makes articles for index hero element
 if(document.getElementById("hero")){
-    let teamJSON = "/data/hero.json";
-    let teamSection = document.querySelector('section');
+    let JSON = "/data/hero.json";
+    let Section = document.querySelector('section');
 
     document.addEventListener('DOMContentLoaded', ()=>{
-        fetch(teamJSON)
+        fetch(JSON)
             .then(result => result.json())
             .then (resultData =>{ console.log(resultData);
             for (item of resultData){
-                const teamArticles = document.createElement("article");
+                const Articles = document.createElement("article");
                 const pictureElement = document.createElement("img");
                 const Heading = document.createElement("h1");
                 const Para = document.createElement("p");
                 const Button = document.createElement("button");
 
-                teamArticles.classList.add("hero");
+                Articles.classList.add("hero");
 
-                teamSection.appendChild(teamArticles)
+                Section.appendChild(Articles)
                 pictureElement.src = item.image;
                 pictureElement.alt = item.alt;
-                teamArticles.appendChild(pictureElement);
+                Articles.appendChild(pictureElement);
 
                 Heading.textContent = item.h1;
-                teamArticles.appendChild(Heading);
+                Articles.appendChild(Heading);
 
                 Para.textContent = item.para;
-                teamArticles.appendChild(Para);
+                Articles.appendChild(Para);
 
                 Button.textContent = item.button;
-                teamArticles.appendChild(Button);
+                Articles.appendChild(Button);
+
+                Button.addEventListener('click', () => {
+                    window.location.href = item["button-link"];
+                });
             }
         })
         .catch(error => console.error("Error fetching JSON data:", error));

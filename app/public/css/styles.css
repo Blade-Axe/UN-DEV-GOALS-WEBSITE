@@ -79,7 +79,7 @@ h3.goal-h3{
   width: 250px;
   transition: 0.3s;
   cursor: pointer;
-  }
+}
   
 .goal:hover {
   box-shadow: 0 8px 16px var(--box-shadow-large);
@@ -102,8 +102,8 @@ h3.goal-h3{
   padding: 20px;
 }
 header.hero-banner{
-  height: 600px;
-  margin-right: 40px;
+  height: 400px;
+  margin-right: 50px;
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
@@ -154,7 +154,7 @@ button:hover {
 nav{
   position: relative;
   width: 100%;
-  padding: 20px;
+  padding: 40px;
   background-color: var(--nav-background);
   z-index: 999;
 }
@@ -164,11 +164,12 @@ nav{
   grid-template-columns: auto auto;
 }
 #nav-menu-container{
+  position: relative;
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: auto auto;
-  
 }
+
 .nav-left{
   display: grid;
   grid-auto-flow: column;
@@ -184,20 +185,29 @@ nav ul li{
   display: inline;
 }
 nav ul li a{
+  transition: all 0.5s ease;
+  border-radius: 32px;
   padding: 10px 20px 10px 20px;
   justify-content: center;
   align-items: center;
   color: var(--text-colour);
   font-weight: 500;
-  font-size: 20px;
+  font-size: 23px;
   text-decoration: none;
 }
 nav ul li a:hover{
   color: var(--text-colour-hover);
   background-color: var(--nav-capsule-background);
-  border-radius: 32px;
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+}
+.nav-link{
+  border: solid 1px;
+  border-color: transparent;
+  position: relative;
 }
 .nav-link.active{
+  border: solid 1px;
   color: var(--text-colour);
   background-color: var(--nav-capsule-background);
   border-radius: 32px;
@@ -211,7 +221,7 @@ nav label.brand a{
   list-style: none;
   color: var(--text-colour);
   font-weight: 700;
-  font-size: 20px;
+  font-size: 23px;
 }
 footer{
   position: absolute;
@@ -293,6 +303,9 @@ section.flex-container > div {
   section.flex-container {
     flex-direction: column;
   }
+  header.hero-banner{
+    height: 400px;
+  }
   nav{
     padding: 0px;
   }
@@ -308,17 +321,23 @@ section.flex-container > div {
   }
   nav ul li{
     display: block;
-    margin: 5px 0;
+    margin: 10px 0;
   }
   nav ul li a{
     justify-content: center;
     display: flex;
   }
+  .nav-left{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
   .fa-solid.fa-bars{
     cursor: pointer;
     position: absolute;
     display: inline-block;
-    font-size: 20px;
+    font-size: 40px;
     align-items: center;
     text-align: center;
     justify-content: center;
@@ -331,18 +350,24 @@ section.flex-container > div {
   }
   #nav-elements{
     display: flex;
-    padding: 20px;
+    padding: 40px;
     flex-direction: column;
     align-items: flex-start;
     align-items: center;
     justify-content: center;
   }
   #nav-menu-container{
-    display: none; 
+    margin-top: 30px;
+    position: absolute; 
+    visibility: hidden;
+    opacity: 0;
     flex-direction: column;
     text-align: center;
   }
   #nav-menu-container.active{
+    opacity: 1;
+    visibility: visible;
+    position: relative;
     display: flex;
   }
   .nav-central, .nav-right{
