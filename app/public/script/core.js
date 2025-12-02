@@ -191,3 +191,55 @@ if(document.getElementById("hero")){
         .catch(error => console.error("Error fetching JSON data:", error));
     })
 }
+
+const cardContainer = document.getElementById("dynamic-goals-container");
+
+if(cardContainer){
+    const jsonPath = "/data/index-cards.json";
+
+    document.addEventListener('DOMContentLoaded', () => {
+        fetch(jsonPath)
+            .then(result => result.json())
+            .then(resultData => { 
+                
+                resultData.forEach(item => {
+                    const card = document.createElement("a");
+                    card.classList.add("card");
+                    card.href = item.link; // Matches JSON "link"
+
+                    const imgWrapper = document.createElement("div");
+                    imgWrapper.classList.add("card-image");
+
+                    const imgElement = document.createElement("img");
+                    imgElement.src = item.imageURL;
+                    imgElement.alt = item.alt;
+                    
+                    imgWrapper.appendChild(imgElement);
+
+                    const contentWrapper = document.createElement("div");
+                    contentWrapper.classList.add("card-content");
+
+                    const heading = document.createElement("h2");
+                    heading.textContent = item.h2; // Matches JSON "h2"
+
+                    const paragraph = document.createElement("p");
+                    paragraph.textContent = item.p; // Matches JSON "p"
+
+                    const fakeButton = document.createElement("span");
+                    fakeButton.classList.add("card-btn");
+                    fakeButton.innerHTML = "Read More...";
+
+                    // Append text elements to the content wrapper
+                    contentWrapper.appendChild(heading);
+                    contentWrapper.appendChild(paragraph);
+                    contentWrapper.appendChild(fakeButton);
+
+                    card.appendChild(imgWrapper);
+                    card.appendChild(contentWrapper);
+
+                    cardContainer.appendChild(card);
+                });
+            })
+            .catch(error => console.error("Error fetching JSON data:", error));
+    });
+}

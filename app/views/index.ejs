@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-  <html lang="en">
-    <%- include('partials/head'); %>
-    <body>
-        <main class="index-content">
-            <div id="content-wrap">
-                <%- include('partials/nav'); %>
+<html lang="en">
+<%- include('partials/head'); %>
+<body>
+    <main class="index-content">
+        <div id="content-wrap">
+            <%- include('partials/nav'); %>
+            <article id="content-body">
                 <%- include('partials/hero'); %>
-                <%- include('partials/footer'); %>
-            </div>
-        </main>
-    </body>
+                <%- include('partials/card-template'); %>
+            </article>
+            <%- include('partials/footer'); %>
+        </div>
+    </main>
+</body>
 </html>
