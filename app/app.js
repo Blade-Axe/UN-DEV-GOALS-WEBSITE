@@ -23,8 +23,8 @@ app.get('/the-team', (req, res) => {
     res.render('the-team', {title: 'THE TEAM'});
 });
 
-app.get('/sign-up', (req, res) => {
-    res.render('sign-up', {title: 'SIGN UP'});
+app.get('/subscribe', (req, res) => {
+    res.render('subscribe', {title: 'SIGN UP'});
 });
 
 app.get('/goals', (req, res) => {
