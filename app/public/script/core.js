@@ -166,6 +166,7 @@ if(document.getElementById("hero")){
                 const Heading = document.createElement("h1");
                 const Para = document.createElement("p");
                 const Button = document.createElement("button");
+                Button.classList.add("index-btn");
 
                 Articles.classList.add("hero");
 

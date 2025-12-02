@@ -1,6 +1,6 @@
 [
     {
-        "imageURL":"https://www.durham.ac.uk/media/durham-university/about-us/environmental-social-and-economic-sustainability/sustainable-development-goals/6-Clear-Water-and-Sanitation.png",
+        "imageURL":"/assets/Clear-Water-and-Sanitation.png",
         "alt": "Sustainability Goal 6",
         "h2":"Cleaner water",
         "p":"Focusing policy on better water for all enables bettering everyone.",
@@ -8,7 +8,7 @@
         "fakeButtonText": "Read More..."
     },
     {
-        "imageURL":"https://cdn.who.int/media/images/default-source/initiatives/uhc-advice/who-cards-08-sdg07.tmb-1200v.jpg?sfvrsn=3970bb1a_4",
+        "imageURL":"/assets/sun.jpg",
         "alt": "Sustainability Goal 7",
         "h2":"Affordable energy",
         "p":"Accessible and affordable energy expands opportunity.",
@@ -16,7 +16,7 @@
         "fakeButtonText": "Read More..."
     },
     {
-        "imageURL":"https://sdg.statssa.gov.za/frameworks/sdg-icons/no-text/13.svg",
+        "imageURL":"/assets/climate.svg",
         "alt": "Sustainability Goal 13",
         "h2":"Climate action",
         "p":"Fixing the climate enables more effective policy action.",
