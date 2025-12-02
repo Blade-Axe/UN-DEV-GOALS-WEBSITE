@@ -16,10 +16,10 @@
         "resp": "Nulla tempor nulla urna, nec vehicula velit pellentesque ut. Sed urna mi, porta eu finibus id, pretium tincidunt quam. Integer hendrerit tellus non tempus laoreet. Aliquam erat volutpat."
     },
     {
-        "image": "/assets/empty.png",
+        "image": "/assets/macBacon.png",
         "alt": "A photo of Mac Bacon",
         "name": "Mac Bacon",
-        "role": "Null",
+        "role": "Created Goals Page",
         "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue ante ut sem tincidunt tincidunt.",
         "resp": "Nulla tempor nulla urna, nec vehicula velit pellentesque ut. Sed urna mi, porta eu finibus id, pretium tincidunt quam. Integer hendrerit tellus non tempus laoreet. Aliquam erat volutpat."
     },
