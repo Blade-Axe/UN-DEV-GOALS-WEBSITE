@@ -170,7 +170,7 @@ header.hero-banner img {
   margin-bottom: 12px;
 }
 
-button {
+button.index-btn{
   position: absolute;
   padding: 1em 2.1em 1.1em;
   border-radius: 16px;
@@ -186,7 +186,7 @@ button {
   transition: all 0.5s ease-in-out;
 }
 
-button:hover {
+button.index-btn:hover {
   background-color: var(--accent-plus);
   box-shadow: 2em -0.2rem 2em var(--accent) inset;
   color: var(--text-colour);
@@ -204,27 +204,28 @@ nav{
 }
 #nav-elements{
   width: 100%;
-  display: grid;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
   grid-template-columns: auto auto;
 }
 #nav-menu-container{
-  position: relative;
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-columns: auto auto;
-}
-
-.nav-left{
-  display: grid;
-  grid-auto-flow: column;
+  position: absolute;
+  left: 50%;
+  display: flex;
   justify-content: center;
-
+  align-items: center;
+  transform: translateX(-50%);
 }
-.nav-right{
-  display: grid;
-  grid-auto-flow: column;
-
+.nav-left{
+  display: flex;
+  align-items: left;
 }
+.nav-central{
+  display: flex;
+}
+
 nav ul li{
   margin: 0px 5px 0px 5px;
   display: inline;
@@ -474,7 +475,8 @@ footer{
   }
   #nav-menu-container{
     margin-top: 30px;
-    position: absolute; 
+    left: auto;
+    transform: none;
     visibility: hidden;
     opacity: 0;
     flex-direction: column;
@@ -486,7 +488,7 @@ footer{
     position: relative;
     display: flex;
   }
-  .nav-central, .nav-right{
+  .nav-central{
     flex-direction: column;
     width: 100%;
     gap: 10px;
@@ -508,5 +510,18 @@ footer{
   }
   .card-content{
     height: auto;
+  }
+}
+/* Tablet / Small Laptop Adjustment (Between 787px and 1150px) */
+@media only screen and (max-width: 1150px) and (min-width: 820px) {
+  
+  /* 1. Stop dead-centering to prevent collision */
+  #nav-menu-container {
+    position: static; /* Put it back in the flow */
+    transform: none;  /* Remove the shift */
+    margin-left: auto; /* Push it to the right (next to Subscribe if it exists, or just right side) */
+  }
+  .nav-central {
+    gap: 10px; 
   }
 }
