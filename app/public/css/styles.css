@@ -38,6 +38,7 @@ main{
 
 h1.goal-h1, h2.goal-h2{
   display: block;
+  margin-top: 10px;
 }
 
 h1.goal-h1{
@@ -45,7 +46,7 @@ h1.goal-h1{
   font-weight: 700;
   color: var(--text-colour);
   text-align: center;
-  margin: 20px 0px 0px 0px;
+  margin: 20px 0px 20px 0px;
 }
 
 h2.goal-h2{
@@ -109,11 +110,11 @@ h3.goal-h3{
 }
 
 .goal-button {
-  position: static; /* override global absolute button rule so it flows in document */
+  position: static;
   display: inline-block;
   padding: 1em 2.1em 1.1em;
   border-radius: 4px;
-  margin: 12px auto 8px; /* centers and places button below the image */
+  margin: 12px auto 8px;
   border: none;
   background-color: var(--nav-capsule-background);
   color: #000000;

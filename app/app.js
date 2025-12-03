@@ -31,6 +31,10 @@ app.get('/goals', (req, res) => {
     res.render('goals', {title: 'GOALS'});
 });
 
+app.get('/cleanWater', (req, res) => {
+    res.render('cleanWater', {title: 'CLEAN WATER AND SANITATION'});
+});
+
 
 /* 
 Advanced Approach: Render EJS template

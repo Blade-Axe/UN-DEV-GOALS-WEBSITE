@@ -291,19 +291,19 @@ if (document.getElementById("goals-section")) {
                     innerDiv.appendChild(img);
                     goalDiv.appendChild(innerDiv);
 
-                    // Optional information paragraph if present in JSON
-                    const informationText = goals[`info_${i}`] || goals[`information_${i}`] || '';
-                    if (informationText) {
-                        const information = document.createElement("p");
-                        information.textContent = informationText;
-                        goalDiv.appendChild(information);
-                    }
-
                     Button.textContent = buttonText;
-                    // Append button to the goalDiv (was incorrectly using Articles)
                     goalDiv.appendChild(Button);
-
-                    if (buttonLink) {
+                    if (i === 1) {
+                        Button.addEventListener('click', () => {
+                            fetch('/cleanWater')
+                                .then(response => response.text())
+                                .then(html => {
+                                    document.body.innerHTML = html;
+                                })
+                                .catch(error => console.error("Error fetching cleanWater:", error));
+                        });
+                        //add other 2 pages button links also maybe link to same page just load different content using json
+                    } else if (buttonLink) {
                         Button.addEventListener('click', () => {
                             window.location.href = buttonLink;
                         });
