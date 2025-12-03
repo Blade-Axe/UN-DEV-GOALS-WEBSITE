@@ -246,6 +246,45 @@ if(cardContainer){
 }
 
 // Fetch JSON and build the Goals section dynamically
+if (document.getElementById("water-section")) {
+
+    const fileJSON = "/data/cleanWater.json";
+    const waterSection = document.getElementById("water-section");
+    const titleH1 = document.getElementById("water-title");
+    const subtitleH2 = document.getElementById("water-subtitle");
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+        fetch(fileJSON)
+            .then(res => res.json())
+            .then(data => {
+                const waterData = data[0];
+                titleH1.textContent = waterData.h1;
+                subtitleH2.textContent = waterData.h2;
+
+                const cleanWaterDiv = document.createElement("p");
+                cleanWaterDiv.classList.add("water-description1");
+                cleanWaterDiv.textContent = waterData.description_1;
+
+                const cleanWaterDiv2 = document.createElement("p");
+                cleanWaterDiv2.classList.add("water-description2");
+                cleanWaterDiv2.textContent = waterData.description_2;
+
+                const cleanWaterDiv3 = document.createElement("p");
+                cleanWaterDiv3.classList.add("water-description3");
+                cleanWaterDiv3.textContent = waterData.description_3;
+
+                waterSection.appendChild(cleanWaterDiv);
+                waterSection.appendChild(cleanWaterDiv2);
+                waterSection.appendChild(cleanWaterDiv3);
+
+            })
+            //catch errors with json fetch
+            .catch(err => console.error("Error loading JSON:", err));
+    });
+}
+
+// Fetch JSON and build the Goals section dynamically
 if (document.getElementById("goals-section")) {
 
     const fileJSON = "/data/goals.json";
@@ -284,9 +323,8 @@ if (document.getElementById("goals-section")) {
                     const Button = document.createElement("button");
                     Button.classList.add("goal-button");
 
-                    // Set button text and safe link lookups with fallbacks
                     const buttonText = goals[`button_${i}`] || goals.button || 'Learn more';
-                    const buttonLink = goals[`button-link_${i}`] || goals[`button_link_${i}`] || goals[`buttonLink_${i}`] || goals['button-link'] || null;
+                    let buttonLink = goals[`button-link_${i}`] || goals[`button-link-${i}`] || goals['button-link'] || null;
 
                     innerDiv.appendChild(heading);
                     innerDiv.appendChild(img);
@@ -296,20 +334,18 @@ if (document.getElementById("goals-section")) {
                     goalDiv.appendChild(Button);
                     if (i === 1) {
                         Button.addEventListener('click', () => {
-                            fetch('/cleanWater')
-                                .then(response => response.text())
-                                .then(html => {
-                                    document.body.innerHTML = html;
-                                })
-                                .catch(error => console.error("Error fetching cleanWater:", error));
+                            window.location.href = "/cleanWater";
                         });
-                        //add other 2 pages button links also maybe link to same page just load different content using json
-                    } else if (buttonLink) {
+                    } else if (i === 2) {
                         Button.addEventListener('click', () => {
-                            window.location.href = buttonLink;
+                            window.location.href = "/climateAction";
                         });
                     }
-
+                    else if (i === 3) {
+                        Button.addEventListener('click', () => {
+                            window.location.href = "/cleanEnergy";
+                        });
+                    }
                     goalsSection.appendChild(goalDiv);
                 }
 

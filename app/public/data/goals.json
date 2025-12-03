@@ -15,6 +15,10 @@
     "h3_2": "Climate \n Action",
     "h3_3": "Affordable & Clean Energy",
 
-    "button": "Learn More"
+    "button": "Learn More",
+
+    "button-link_1": "/cleanWater",
+    "button-link_2": "/climateAction",
+    "button-link_3": "/cleanEnergy"
   }
 ]
