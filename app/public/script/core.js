@@ -228,7 +228,7 @@ if(cardContainer){
 
                     const fakeButton = document.createElement("span");
                     fakeButton.classList.add("card-btn");
-                    fakeButton.innerHTML = "Read More...";
+                    fakeButton.textContent = item.fakeButtonText;
 
                     // Append text elements to the content wrapper
                     contentWrapper.appendChild(heading);

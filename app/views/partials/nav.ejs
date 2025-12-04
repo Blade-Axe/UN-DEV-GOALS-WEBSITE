@@ -2,21 +2,21 @@
     <ul id="nav-elements" class="unselectable">
         <div class="nav-left">
             <i id="hamburger" class="fa-solid fa-bars"></i>
-            <label class="brand unselectable"><a href="/">UN DEV GOALS</a></label>
+            <label class="brand unselectable"><a href="<%= routes.home %>">UN DEV GOALS</a></label>
         </div>
         <div id="nav-menu-container">
             <div class="nav-central">
                 <li class="nav-item">
-                    <a class="nav-link <%= currentPath === '/' ? 'active' : '' %>" href="/">Home</a>
+                    <a class="nav-link <%= currentPath === 'routes.home' ? 'active' : '' %>" href="<%= routes.home %>">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <%= currentPath === '/the-team' ? 'active' : '' %>" href="/the-team">The Team</a>
+                    <a class="nav-link <%= currentPath === 'routes.team' ? 'active' : '' %>" href="<%= routes.team %>">The Team</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <%= currentPath === '/goals' ? 'active' : '' %>" href="/goals">Goals</a>
+                    <a class="nav-link <%= currentPath === 'routes.goals' ? 'active' : '' %>" href="<%= routes.goals %>">Goals</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <%= currentPath === '/subscribe' ? 'active' : '' %>" href="/subscribe">Subscribe</a>
+                    <a class="nav-link <%= currentPath === 'routes.subscribe' ? 'active' : '' %>" href="<%= routes.subscribe %>">Subscribe</a>
                 </li>
             </div>
         </div>
