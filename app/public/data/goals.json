@@ -17,8 +17,8 @@
 
     "button": "Learn More",
 
-    "button-link_1": "/goals/clean-water",
-    "button-link_2": "/goals/climate-action",
-    "button-link_3": "/goals/clean-energy"
+    "button-link-1": "cleanWater",
+    "button-link-2": "climateAction",
+    "button-link-3": "cleanEnergy"
   }
 ]

@@ -4,7 +4,7 @@
         "alt": "Sustainability Goal 6",
         "h2":"Cleaner water",
         "p":"Focusing policy on better water for all enables bettering everyone.",
-        "link": "/goals/clean-water",
+        "link": "cleanWater",
         "fakeButtonText": "Read More..."
     },
     {
@@ -12,7 +12,7 @@
         "alt": "Sustainability Goal 7",
         "h2":"Affordable energy",
         "p":"Accessible and affordable energy expands opportunity.",
-        "link": "/goals/clean-energy",
+        "link": "cleanEnergy",
         "fakeButtonText": "Read More..."
     },
     {
@@ -20,7 +20,7 @@
         "alt": "Sustainability Goal 13",
         "h2":"Climate action",
         "p":"Fixing the climate enables more effective policy action.",
-        "link": "/goals/climate-action",
+        "link": "climateAction",
         "fakeButtonText": "Read More..."
     }
 ]

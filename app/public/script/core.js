@@ -1,3 +1,11 @@
+function getRoute(key) {
+    if (typeof SITE_ROUTES !== 'undefined' && SITE_ROUTES[key]) {
+        return SITE_ROUTES[key];
+    }
+    console.warn(`Route key "${key}" not found in SITE_ROUTES.`);
+    return '#';
+}
+
 if(document.getElementById("date")){
     let myDate = new Date();
     let todaysDate = myDate.toDateString();
@@ -63,53 +71,6 @@ if(document.getElementById("myForm")){
     });
 }
 
-if(document.getElementById("schedule")){
-    let mySchedule = document.getElementById("schedule");
-    let localJsonFile = "/data/data.json";
-    let sectionElement = document.querySelector('section');
-
-    document.addEventListener('DOMContentLoaded', ()=>{
-        fetch(localJsonFile)
-        .then(response => response.json())
-        .then (responseData =>{ console.log(responseData);
-            for (item of responseData){
-                const schedule = document.createElement("article");
-                const imageElement = document.createElement("img");
-                const level4heading = document.createElement("h4");
-                const para1 = document.createElement("p");
-                const para2 = document.createElement("p");
-                const para3 = document.createElement("p");
-                const para4 = document.createElement("p");
-
-                schedule.classList.add("services");
-
-                sectionElement.appendChild(schedule)
-                imageElement.src = item.imageURL;
-                imageElement.alt = item.alt;
-                schedule.appendChild(imageElement);
-
-                level4heading.textContent = item.style;
-                schedule.appendChild(level4heading);
-
-                para1.textContent = item.time;
-                schedule.appendChild(para1);
-
-                para2.textContent = item.focus;
-                schedule.appendChild(para2);
-
-                para3.textContent = item.benefits;
-                schedule.appendChild(para3);
-
-                para4.textContent = item.level;
-                schedule.appendChild(para4);
-
-                
-            }  
-        })
-        .catch(error => console.error("Error fetching JSON data:", error));
-    })
-}
-
 // Fetches JSON and makes articles for team page
 if(document.getElementById("team-section")){
     let teamJSON = "/data/team.json";
@@ -159,8 +120,8 @@ if(document.getElementById("hero")){
     document.addEventListener('DOMContentLoaded', ()=>{
         fetch(JSON)
             .then(result => result.json())
-            .then (resultData =>{ console.log(resultData);
-            for (item of resultData){
+            .then (resultData =>{
+            for (const item of resultData){
                 const Articles = document.createElement("article");
                 const pictureElement = document.createElement("img");
                 const Heading = document.createElement("h1");
@@ -184,8 +145,12 @@ if(document.getElementById("hero")){
                 Button.textContent = item.button;
                 Articles.appendChild(Button);
 
+                const routeKey = item["button-link"];
+
+                const finalUrl = getRoute(routeKey);
+
                 Button.addEventListener('click', () => {
-                    window.location.href = item["button-link"];
+                    window.location.href = finalUrl;
                 });
             }
         })
@@ -206,7 +171,8 @@ if(cardContainer){
                 resultData.forEach(item => {
                     const card = document.createElement("a");
                     card.classList.add("card");
-                    card.href = item.link; // Matches JSON "link"
+                    const routeKey = item.link;
+                    card.href = getRoute(routeKey); // Matches JSON "link"
 
                     const imgWrapper = document.createElement("div");
                     imgWrapper.classList.add("card-image");
@@ -310,32 +276,24 @@ if (document.getElementById("goals-section")) {
                     img.src = goals[`image_${i}`];
                     img.alt = goals[`alt_${i}`];
 
-                    const Button = document.createElement("button");
-                    Button.classList.add("goal-button");
-
-                    const buttonText = goals[`button_${i}`] || goals.button || 'Learn more';
-                    let buttonLink = goals[`button-link_${i}`] || goals[`button-link-${i}`] || goals['button-link'] || null;
-
                     innerDiv.appendChild(heading);
                     innerDiv.appendChild(img);
                     goalDiv.appendChild(innerDiv);
 
+                    const Button = document.createElement("button");
+                    Button.classList.add("goal-button");
+
+                    const buttonText = goals[`button_${i}`] || goals.button || 'Learn more';
+                    let routeKey = goals[`button-link-${i}`];
+
+                    const finalUrl = SITE_ROUTES[routeKey] || '#'; 
+
                     Button.textContent = buttonText;
+                    Button.addEventListener('click', () => {
+                        window.location.href = finalUrl;
+                    });
+                    
                     goalDiv.appendChild(Button);
-                    if (i === 1) {
-                        Button.addEventListener('click', () => {
-                            window.location.href = "/goals/clean-water";
-                        });
-                    } else if (i === 2) {
-                        Button.addEventListener('click', () => {
-                            window.location.href = "/goals/climate-action";
-                        });
-                    }
-                    else if (i === 3) {
-                        Button.addEventListener('click', () => {
-                            window.location.href = "/goals/clean-energy";
-                        });
-                    }
                     goalsSection.appendChild(goalDiv);
                 }
 
