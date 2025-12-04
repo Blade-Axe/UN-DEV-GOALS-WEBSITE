@@ -33,7 +33,7 @@ main{
   min-height: 100%;
 }
 #content-wrap{
-  padding-bottom: 2.5rem;
+  padding-bottom: 5rem;
 }
 
 h1.goal-h1, h2.goal-h2{
@@ -174,7 +174,7 @@ button.index-btn{
   position: absolute;
   padding: 1em 2.1em 1.1em;
   border-radius: 16px;
-  margin: 8px;
+  margin-top: 8px;
   border: none;
   background-color: var(--nav-capsule-background);
   color: #000000;
@@ -271,7 +271,7 @@ nav label.brand a{
 }
 footer{
   position: absolute;
-  height: 2.5rem;
+  height: 5rem;
   bottom: 0;
   padding: 16px;
   width: 100%;

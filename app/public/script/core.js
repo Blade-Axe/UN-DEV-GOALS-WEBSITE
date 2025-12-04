@@ -297,7 +297,6 @@ if (document.getElementById("goals-section")) {
         fetch(fileJSON)
             .then(res => res.json())
             .then(data => {
-
                 const goals = data[0];
                 titleH1.textContent = goals.h1;
                 subtitleH2.textContent = goals.h2;
@@ -334,7 +333,7 @@ if (document.getElementById("goals-section")) {
                     goalDiv.appendChild(Button);
                     if (i === 1) {
                         Button.addEventListener('click', () => {
-                            window.location.href = "/cleanWater";
+                            window.location.href = "/goals/clean-water";
                         });
                     } else if (i === 2) {
                         Button.addEventListener('click', () => {

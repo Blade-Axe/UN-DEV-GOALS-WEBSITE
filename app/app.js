@@ -31,7 +31,7 @@ app.get('/goals', (req, res) => {
     res.render('goals', {title: 'GOALS'});
 });
 
-app.get('/cleanWater', (req, res) => {
+app.get('/goals/clean-water', (req, res) => {
     res.render('cleanWater', {title: 'CLEAN WATER AND SANITATION'});
 });
 
