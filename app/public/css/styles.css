@@ -36,6 +36,56 @@ main{
   padding-bottom: 2.5rem;
 }
 
+h1.water-h1 {
+  font-size: 2em;
+  font-weight: 700;
+  color: var(--text-colour);
+  text-align: center;
+  margin: 20px 0px 20px 0px;
+}
+
+.back-button-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.back-button{
+  padding: 1em 2.1em 1.1em;
+  border-radius: 16px;
+  margin: 8px;
+  border: none;
+  background-color: var(--nav-capsule-background);
+  color: #000000;
+  font-weight: 800;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  text-align: center;
+  box-shadow: 0em -0.2rem 0em var(--nav-capsule-background-hover) inset;
+  transition: all 0.5s ease-in-out;
+}
+.back-button:hover {
+  background-color: var(--accent-plus);
+  box-shadow: 2em -0.2rem 2em var(--accent) inset;
+  color: var(--text-colour);
+  cursor: pointer;
+}
+
+h2.water-h2 {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: var(--text-colour);
+  text-align: center;
+  margin: 15px 0px 15px 0px;
+  display: inline-block;
+}
+
+.water-description{
+  display: block;
+  font-size: 1em;
+  text-align: center;
+  margin: 0px 100px 20px 100px;
+}
+
 h1.goal-h1, h2.goal-h2{
   display: block;
   margin-top: 10px;
