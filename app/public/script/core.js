@@ -262,21 +262,12 @@ if (document.getElementById("water-section")) {
                 titleH1.textContent = waterData.h1;
                 subtitleH2.textContent = waterData.h2;
 
-                const cleanWaterDiv = document.createElement("p");
-                cleanWaterDiv.classList.add("water-description1");
-                cleanWaterDiv.textContent = waterData.description_1;
-
-                const cleanWaterDiv2 = document.createElement("p");
-                cleanWaterDiv2.classList.add("water-description2");
-                cleanWaterDiv2.textContent = waterData.description_2;
-
-                const cleanWaterDiv3 = document.createElement("p");
-                cleanWaterDiv3.classList.add("water-description3");
-                cleanWaterDiv3.textContent = waterData.description_3;
-
-                waterSection.appendChild(cleanWaterDiv);
-                waterSection.appendChild(cleanWaterDiv2);
-                waterSection.appendChild(cleanWaterDiv3);
+                for (let i = 1; i <= 3; i++) {
+                    const para = document.createElement("p");
+                    para.classList.add("water-description", `water-description${i}`);
+                    para.textContent = waterData[`description_${i}`];
+                    waterSection.appendChild(para);
+                }
 
             })
             //catch errors with json fetch
