@@ -328,12 +328,12 @@ if (document.getElementById("goals-section")) {
                         });
                     } else if (i === 2) {
                         Button.addEventListener('click', () => {
-                            window.location.href = "/climateAction";
+                            window.location.href = "/goals/climate-action";
                         });
                     }
                     else if (i === 3) {
                         Button.addEventListener('click', () => {
-                            window.location.href = "/cleanEnergy";
+                            window.location.href = "/goals/clean-energy";
                         });
                     }
                     goalsSection.appendChild(goalDiv);
