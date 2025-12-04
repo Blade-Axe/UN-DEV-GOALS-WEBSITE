@@ -5,7 +5,9 @@ const routes = {
     goals: '/goals',
     subscribe: '/subscribe',
     goals: '/goals',
-    cleanWater: '/goals/clean-water'
+    cleanWater: '/goals/clean-water',
+    climateAction: "/goals/climate-action",
+    cleanEnergy: "/goals/clean-energy"
 };
 
 module.exports = routes;
