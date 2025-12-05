@@ -1,0 +1,10 @@
+{
+    "pageTitle": "Subscribe to our newsletter",
+    "legend": "Contact Form",
+    "firstNameLabel": "First Name:*",
+    "lastNameLabel": "Last Name:*",
+    "emailLabel": "Email:*",
+    "userSubmission": "Comments:*",
+    "requiredFieldLabel": "Required Field",
+    "submitBtn": "Send Message"
+}
