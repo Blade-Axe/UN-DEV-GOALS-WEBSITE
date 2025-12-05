@@ -5,7 +5,27 @@
     <main>
         <div id="content-wrap">
             <%- include('partials/nav'); %>
-            <h3>SIGN UP</h3>
+            <section>
+                <div class="container">
+                    <h2>subscribe to our newsletter</h2>
+                    <form method="post" action="<%= routes.subscribe %>" id="subscribeForm">
+                        <fieldset>
+                            <legend>Contact Form</legend>
+                            <label class="formLabel" for="firstName">First Name:*</label>
+                                <input type="text" id="firstName" name="firstName" placeholder="Your name.." required>
+                            <label class="formLabel" for="lastName">Last Name:*</label>
+                                <input type="text" id="lastName" name="lastName" placeholder="Your name.." required>
+                            <label class="formLabel" for="userEmail">Email:*</label>
+                                <input type="text" id="userEmail" name="userEmail" placeholder="Your email.." required>
+                            <label class="formLabel" for="subject">Comments:*</label>
+                                <textarea id="userSubmission" name="userSubmission" placeholder="Write something.." style="height:170px" required></textarea>
+                            
+                                <input type="submit" value="Send Message" id="submit">
+                            <p id="confirmMessage">* Required Field</p>
+                        </fieldset>
+                    </form>
+                </div> 
+            </section>
             <%- include('partials/footer'); %>
         </div>
     </main>

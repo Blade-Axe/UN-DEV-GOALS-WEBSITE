@@ -58,17 +58,47 @@ if(document.getElementById("nav-menu-container")){
     });
 }
 
-if(document.getElementById("myForm")){
-    let myForm = document.getElementById("myForm");
-    let myName = document.getElementById("name");
-    let myEmail = document.getElementById("email");
-    let mySubmission = document.getElementById("subject");
+if(document.getElementById("subscribeForm")){
+    let subscribeForm = document.getElementById("subscribeForm");
+    let firstName = document.getElementById("firstName");
+    let lastName = document.getElementById("lastName");
+    let userEmail = document.getElementById("userEmail");
+    let userSubmission = document.getElementById("userSubmission");
     let confirmMessage = document.getElementById("confirmMessage");
 
-    myForm.addEventListener("submit", (e)=>{
-        e.preventDefault();   
-        confirmMessage.textContent=`Hi ${myName.value}, your message has been received, we will contact you at ${myEmail.value}`;
+    document.addEventListener("DOMContentLoaded", () => {
+        fetch('/content.json')
+            .then(response => response.json())
+            .then(data => {
+                document.querySelector('h2').textContent = data.pageTitle;
+                document.querySelector('label[for="firstName"]').textContent = data.firstNameLabel;
+                // ... apply other text ...
+            });
     });
+
+    subscribeForm.addEventListener("submit", (e)=>{
+        e.preventDefault();
+        const formBody = {
+            firstName:firstName.value,
+            lastName:lastName.value,
+            userEmail:userEmail.value,
+            userSubmission:userSubmission.value
+        };
+        const requestHeaders = {
+            "Content-Type": "application/json"
+        }
+        fetch('/subscribe',{
+                method: 'POST',
+                headers: requestHeaders,
+                body: JSON.stringify(formBody)
+            })
+            .then(response => response.json())
+            .then((responseData) => {
+                console.log(responseData);
+                confirmMessage.textContent=`Hi ${firstName.value}, your message has been received, we will contact you at ${userEmail.value}`;
+            })
+        
+    })
 }
 
 // Fetches JSON and makes articles for team page
