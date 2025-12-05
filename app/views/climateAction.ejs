@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head'); %>
+    <body>
+        <main>
+            <div id="content-wrap">
+                <%- include('partials/nav'); %>
+                <div class="back-button-container">
+                    <button class="back-button" onclick="history.back()">&#8592; Back</button>
+                </div>
+                <h1 id="climate-title" class="climate-h1"></h1>
+                <div id="climate-container"></div>
+                <h2 id="climate-subtitle" class="climate-h2"></h2>
+                
+                <section id="climate-section"></section>
+        
+                <%- include('partials/footer'); %>
+            </div>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+[
+  {
+    "image_1": "/assets/climate_action.png",
+    "alt_1": "Image of climate action",
+    "h1": "Climate Action",
+    "h2": "Description",
+    "h3": "The solutions exist",
+    "description_1": "Every person, in every country in every continent is impacted in some shape or form by climate change. Climate change is caused by human activities – primarily the burning of fossil fuels like oil, coal and gas – and threatens life on Earth as we know it. With rising greenhouse gas emissions, the impacts of climate change are intensifying and accelerating,including more frequent extreme weather events like droughts, floods and storms, and rising sea levels.",
+    "description_2": "If left unchecked, climate change will undo a lot of the development progress made over the past years. It can also intensify conflicts over resources and force people to move.",
+    "description_3": "Currently, our planet is already about 1.2°C warmer than it was in the late 1800s, and emissions continue to rise. To keep global warming to no more than 1.5°C  – as called for in the Paris Agreement – greenhouse gas emissions must be cut by almost half by 2030 compared to 2019.",
+    "description_4": "The World Meteorological Organization (WMO) confirmed 2024 to be the hottest year on record, at approximately 1.55°C above pre-industrial levels. The WMO estimates an 80 per cent chance that at least one of the next five years will surpass 2024 as the hottest on record.",
+    "description_5": "Switching energy systems from fossil fuels to renewables like solar or wind will reduce the emissions driving climate change. But we have to act now. ",
+    "image": "/assets/climate-change.png",
+    "alt": "Image of climate change"
+  }
+]

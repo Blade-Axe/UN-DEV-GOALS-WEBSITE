@@ -36,7 +36,7 @@ main{
   padding-bottom: 5rem;
 }
 
-h1.water-h1 {
+h1.water-h1, h1.climate-h1, h1.energy-h1 {
   font-size: 2em;
   font-weight: 700;
   color: var(--text-colour);
@@ -44,13 +44,9 @@ h1.water-h1 {
   margin: 20px 0px 20px 0px;
 }
 
-.back-button-container {
-  text-align: left;
-  margin: 20px;
-  padding: 0px 20px 0px 20px;
-}
 
-.water-image{
+
+.water-image, .climate-image, .energy-image {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -59,6 +55,21 @@ h1.water-h1 {
   padding: 20px;
   margin-bottom: 15px;
   border-radius: 30px;
+}
+
+h2.water-h2, h2.climate-h2, h2.energy-h2 {
+  font-size: 1.5em;
+  font-weight: 400;
+  color: var(--text-colour);
+  text-align: center;
+  margin: 15px 0px 15px 0px;
+}
+
+.water-description, .climate-description, .energy-description {
+  display: block;
+  font-size: 1em;
+  text-align: center;
+  margin: 0px 100px 20px 100px;
 }
 
 .back-button{
@@ -85,19 +96,10 @@ h1.water-h1 {
   cursor: pointer;
 }
 
-h2.water-h2 {
-  font-size: 1.5em;
-  font-weight: 600;
-  color: var(--text-colour);
-  text-align: center;
-  margin: 15px 0px 15px 0px;
-}
-
-.water-description{
-  display: block;
-  font-size: 1em;
-  text-align: center;
-  margin: 0px 100px 20px 100px;
+.back-button-container {
+  text-align: left;
+  margin: 20px;
+  padding: 0px 20px 0px 20px;
 }
 
 h1.goal-h1, h2.goal-h2{
@@ -149,6 +151,7 @@ h3.goal-h3{
   height: 200px;
   object-fit: contain;
   margin-bottom: 15px;
+  border-radius: 10px;
 }
 
 .goal-inner{
@@ -157,7 +160,7 @@ h3.goal-h3{
   box-shadow: 0 4px 8px var(--box-shadow);
   padding-top: 5px;
   text-align: center;
-  width: 250px;
+  width: 350px;
   transition: 0.3s;
   cursor: pointer;
 }

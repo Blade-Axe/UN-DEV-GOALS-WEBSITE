@@ -267,11 +267,89 @@ if (document.getElementById("water-section")) {
 
                 subtitleH2.textContent = waterData.h2;
 
-                for (let i = 1; i <= 3; i++) {
+                for (let i = 1; i <= 6; i++) {
                     const para = document.createElement("p");
                     para.classList.add("water-description", `water-description${i}`);
                     para.textContent = waterData[`description_${i}`];
                     waterSection.appendChild(para);
+                }
+
+            })
+            //catch errors with json fetch
+            .catch(err => console.error("Error loading JSON:", err));
+    });
+}
+
+// Fetch JSON and build the climate section dynamically
+if (document.getElementById("climate-section")) {
+
+    const fileJSON = "/data/climateAction.json";
+    const climateSection = document.getElementById("climate-section");
+    const titleH1 = document.getElementById("climate-title");
+    const climateContainer = document.getElementById("climate-container");
+    const subtitleH2 = document.getElementById("climate-subtitle");
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+        fetch(fileJSON)
+            .then(res => res.json())
+            .then(data => {
+                const climateData = data[0];
+                titleH1.textContent = climateData.h1;
+                
+
+                const img = document.createElement("img");
+                img.classList.add("climate-image");
+                img.src = climateData.image;
+                img.alt = climateData.alt;
+                climateContainer.appendChild(img);
+
+                subtitleH2.textContent = climateData.h2;
+
+                for (let i = 1; i <= 5; i++) {
+                    const para = document.createElement("p");
+                    para.classList.add("climate-description", `climate-description${i}`);
+                    para.textContent = climateData[`description_${i}`];
+                    climateSection.appendChild(para);
+                }
+
+            })
+            //catch errors with json fetch
+            .catch(err => console.error("Error loading JSON:", err));
+    });
+}
+
+// Fetch JSON and build the water section dynamically
+if (document.getElementById("energy-section")) {
+
+    const fileJSON = "/data/cleanEnergy.json";
+    const energySection = document.getElementById("energy-section");
+    const titleH1 = document.getElementById("energy-title");
+    const energyContainer = document.getElementById("energy-container");
+    const subtitleH2 = document.getElementById("energy-subtitle");
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+        fetch(fileJSON)
+            .then(res => res.json())
+            .then(data => {
+                const energyData = data[0];
+                titleH1.textContent = energyData.h1;
+                
+
+                const img = document.createElement("img");
+                img.classList.add("energy-image");
+                img.src = energyData.image;
+                img.alt = energyData.alt;
+                energyContainer.appendChild(img);
+
+                subtitleH2.textContent = energyData.h2;
+
+                for (let i = 1; i <= 5; i++) {
+                    const para = document.createElement("p");
+                    para.classList.add("energy-description", `energy-description${i}`);
+                    para.textContent = energyData[`description_${i}`];
+                    energySection.appendChild(para);
                 }
 
             })

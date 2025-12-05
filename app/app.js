@@ -78,6 +78,14 @@ app.get(routes.cleanWater, (req, res) => {
     res.render('cleanWater', {title: 'CLEAN WATER AND SANITATION'});
 });
 
+app.get(routes.climateAction, (req, res) => {
+    res.render('climateAction', {title: 'CLIMATE ACTION'});
+});
+
+app.get(routes.cleanEnergy, (req, res) => {
+    res.render('cleanEnergy', {title: 'CLEAN ENERGY'});
+});
+
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
