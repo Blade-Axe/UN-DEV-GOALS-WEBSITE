@@ -211,12 +211,13 @@ if(cardContainer){
     });
 }
 
-// Fetch JSON and build the Goals section dynamically
+// Fetch JSON and build the water section dynamically
 if (document.getElementById("water-section")) {
 
     const fileJSON = "/data/cleanWater.json";
     const waterSection = document.getElementById("water-section");
     const titleH1 = document.getElementById("water-title");
+    const waterContainer = document.getElementById("water-container");
     const subtitleH2 = document.getElementById("water-subtitle");
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -226,6 +227,14 @@ if (document.getElementById("water-section")) {
             .then(data => {
                 const waterData = data[0];
                 titleH1.textContent = waterData.h1;
+                
+
+                const img = document.createElement("img");
+                img.classList.add("water-image");
+                img.src = waterData.image;
+                img.alt = waterData.alt;
+                waterContainer.appendChild(img);
+
                 subtitleH2.textContent = waterData.h2;
 
                 for (let i = 1; i <= 3; i++) {
@@ -258,7 +267,6 @@ if (document.getElementById("goals-section")) {
                 titleH1.textContent = goals.h1;
                 subtitleH2.textContent = goals.h2;
 
-                // Loop 3 times to create goal divs
                 for (let i = 1; i <= 3; i++) {
 
                     const goalDiv = document.createElement("div");
