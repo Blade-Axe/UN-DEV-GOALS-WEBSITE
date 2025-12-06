@@ -626,6 +626,40 @@ footer{
   }
 }
 
+/* Made so back button doesnt overlap on goals page */
+@media only screen and (max-width: 700px) and (min-width: 0px) {
+    .goal-inner {
+      width: 100%;
+  }
+
+  h1.water-h1, h1.climate-h1, h1.energy-h1 {
+    font-size: 1.5em;
+    margin: 10px 0px 10px 0px;
+    padding-top: 10px;
+  }
+  .back-button{
+    position: static;
+    margin: 20px auto 10px auto;
+    display: block;
+  }
+  .back-button-container {
+    text-align: center;
+    margin: 10px auto 10px auto;
+    padding: 0px 20px 0px 20px;
+    align-items: center;
+  }
+  .water-description, .climate-description, .energy-description {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .water-image, .climate-image, .energy-image {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 10px;
+  } 
+}
+
 form{
   display: flex;
 }
