@@ -629,13 +629,15 @@ footer{
 /* Made so back button doesnt overlap on goals page */
 @media only screen and (max-width: 700px) and (min-width: 0px) {
     .goal-inner {
-      width: 100%;
+      width: 80%;
   }
 
   h1.water-h1, h1.climate-h1, h1.energy-h1 {
     font-size: 1.5em;
     margin: 10px 0px 10px 0px;
     padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   .back-button{
     position: static;
