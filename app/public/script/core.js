@@ -202,6 +202,7 @@ if (document.getElementById("water-section")) {
     const titleH1 = document.getElementById("water-title");
     const waterContainer = document.getElementById("water-container");
     const subtitleH2 = document.getElementById("water-subtitle");
+    const button = document.getElementById('back-button')
 
     document.addEventListener("DOMContentLoaded", () => {
 
@@ -217,6 +218,8 @@ if (document.getElementById("water-section")) {
                 img.src = waterData.image;
                 img.alt = waterData.alt;
                 waterContainer.appendChild(img);
+
+                button.textContent = waterData.button
 
                 subtitleH2.textContent = waterData.h2;
 
@@ -241,6 +244,7 @@ if (document.getElementById("climate-section")) {
     const titleH1 = document.getElementById("climate-title");
     const climateContainer = document.getElementById("climate-container");
     const subtitleH2 = document.getElementById("climate-subtitle");
+    const button = document.getElementById('back-button')
 
     document.addEventListener("DOMContentLoaded", () => {
 
@@ -257,6 +261,8 @@ if (document.getElementById("climate-section")) {
                 img.alt = climateData.alt;
                 climateContainer.appendChild(img);
 
+                button.textContent = climateData.button
+
                 subtitleH2.textContent = climateData.h2;
 
                 for (let i = 1; i <= 5; i++) {
@@ -272,7 +278,7 @@ if (document.getElementById("climate-section")) {
     });
 }
 
-// Fetch JSON and build the water section dynamically
+// Fetch JSON and build the energy section dynamically
 if (document.getElementById("energy-section")) {
 
     const fileJSON = "/data/cleanEnergy.json";
@@ -280,6 +286,7 @@ if (document.getElementById("energy-section")) {
     const titleH1 = document.getElementById("energy-title");
     const energyContainer = document.getElementById("energy-container");
     const subtitleH2 = document.getElementById("energy-subtitle");
+    const button = document.getElementById('back-button')
 
     document.addEventListener("DOMContentLoaded", () => {
 
@@ -295,6 +302,8 @@ if (document.getElementById("energy-section")) {
                 img.src = energyData.image;
                 img.alt = energyData.alt;
                 energyContainer.appendChild(img);
+
+                button.textContent = energyData.button
 
                 subtitleH2.textContent = energyData.h2;
 
