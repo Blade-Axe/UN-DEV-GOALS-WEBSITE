@@ -44,12 +44,6 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use((req, res, next) => {
-    res.locals.routes = routes;
-    res.locals.currentPath = req.path;
-    next();
-})
-
 // Basic Approach: Render EJS template with static data
 app.get(routes.home, (req, res) => {
     const indexCards = JSON.parse(fs.readFileSync(path.join(__dirname, 'public/data/index-cards.json'), 'utf8'));
@@ -62,10 +56,14 @@ app.get(routes.home, (req, res) => {
 });
 
 app.get(routes.team, (req, res) => {
+    const headerData = teamData[0];
+    const membersData = teamData.slice(1);
+
     res.render('team', 
     {
         title: 'THE TEAM',
-        teamMembers: teamData 
+        teamHeader: headerData.teamHeader,
+        teamMembers: membersData
     });
 });
 

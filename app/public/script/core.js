@@ -29,27 +29,6 @@ if(document.getElementById("nav-menu-container")){
     checkWindowSize.addEventListener("change", function(){
         navBarFix(checkWindowSize);
     });
-
-        (response => response.json())
-        .then(data => {
-            // 1. Brand Name
-            const brandLink = document.getElementById('brand-link');
-            if(brandLink) brandLink.textContent = data.brand;
-
-            // 2. Navigation Links
-            const homeLink = document.getElementById('home-link');
-            if(homeLink) homeLink.textContent = data.home;
-
-            const teamLink = document.getElementById('team-link');
-            if(teamLink) teamLink.textContent = data.team;
-
-            const goalsLink = document.getElementById('goals-link');
-            if(goalsLink) goalsLink.textContent = data.goals;
-
-            const subscribeLink = document.getElementById('subscribe-link');
-            if(subscribeLink) subscribeLink.textContent = data.subscribe;
-        })
-        .catch(error => console.error('Error loading nav content:', error));
         
 }
 
@@ -62,7 +41,8 @@ if(document.getElementById("subscribeForm")){
     let confirmMessage = document.getElementById("confirmMessage");
 
     document.addEventListener("DOMContentLoaded", () => {
-        then(response => response.json())
+        fetch('/data/subscribe.json') // Make sure this path matches where you saved the JSON file
+        .then(response => response.json())
         .then(data => {
             document.getElementById('pageTitle').textContent = data.pageTitle;
             document.getElementById('formLegend').textContent = data.legend;
@@ -83,11 +63,9 @@ if(document.getElementById("subscribeForm")){
     });
 
     subscribeForm.addEventListener("submit", (e)=>{
-        const routeKey = item["link"];
-
-        const finalUrl = getRoute(routeKey);
-
         e.preventDefault();
+        const finalUrl = subscribeForm.getAttribute('action');
+        
         const formBody = {
             firstName:firstName.value,
             lastName:lastName.value,
@@ -107,19 +85,25 @@ if(document.getElementById("subscribeForm")){
                 console.log(responseData);
                 confirmMessage.textContent=`Hi ${firstName.value}, your message has been received, we will contact you at ${userEmail.value}`;
             })
+            .catch(error => {
+            console.error('Error:', error);
+            confirmMessage.textContent = "There was an error submitting your form.";
+        });
         
     })
 }
 
 // Fetches JSON and makes articles for team page
 if(document.getElementById("team-section")){
+    let teamJSON = "/data/team.json";
     let teamSection = document.querySelector('section');
 
     document.addEventListener('DOMContentLoaded', ()=>{
-            then(result => result.json())
+        fetch(teamJSON)
+            .then(result => result.json())
             .then (resultData =>{ console.log(resultData);
             for (item of resultData){
-                const teamHeader = document.createElement("h2");
+                //const teamHeader = document.createElement("h2");
                 const teamArticles = document.createElement("article");
                 const pictureElement = document.createElement("img");
                 const nameHeading = document.createElement("h3");
@@ -129,9 +113,9 @@ if(document.getElementById("team-section")){
 
                 teamArticles.classList.add("team");
 
-                teamHeader.textContent.item.teamHeader;
-                teamHeader.classList.add("#team-title")
-                teamArticles.appendChild(teamHeader);
+                //teamHeader.textContent.item.teamHeader;
+                //teamHeader.classList.add("team-title")
+                //teamArticles.appendChild(teamHeader);
 
                 teamSection.appendChild(teamArticles)
                 pictureElement.src = item.image;
@@ -155,28 +139,14 @@ if(document.getElementById("team-section")){
     })
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const footerSection = document.getElementById('main-footer');
-    
-    if(footerSection){
-            then(response => response.json())
-            .then(data => {
-                const para = document.createElement("p");
-                
-                para.textContent = data.text;
-                
-                footerSection.appendChild(para);
-            })
-            .catch(error => console.error("Error fetching Footer JSON:", error));
-    }
-});
-
 // Fetches JSON and makes articles for index hero element
 if(document.getElementById("hero")){
+    let JSON = "/data/hero.json";
     let Section = document.querySelector('section');
 
     document.addEventListener('DOMContentLoaded', ()=>{
-            then(result => result.json())
+        fetch(JSON)
+            .then(result => result.json())
             .then (resultData =>{
             for (const item of resultData){
                 const Articles = document.createElement("article");
@@ -218,9 +188,11 @@ if(document.getElementById("hero")){
 const cardContainer = document.getElementById("dynamic-goals-container");
 
 if(cardContainer){
+    const jsonPath = "/data/index-cards.json";
 
     document.addEventListener('DOMContentLoaded', () => {
-            then(result => result.json())
+        fetch(jsonPath)
+            .then(result => result.json())
             .then(resultData => { 
                 
                 resultData.forEach(item => {
@@ -386,12 +358,15 @@ if (document.getElementById("energy-section")) {
 // Fetch JSON and build the Goals section dynamically
 if (document.getElementById("goals-section")) {
 
+    const fileJSON = "/data/goals.json";
     const goalsSection = document.getElementById("goals-section");
     const titleH1 = document.getElementById("goal-title");
     const subtitleH2 = document.getElementById("goal-subtitle");
 
     document.addEventListener("DOMContentLoaded", () => {
-            then(res => res.json())
+
+        fetch(fileJSON)
+            .then(res => res.json())
             .then(data => {
                 const goals = data[0];
                 titleH1.textContent = goals.h1;

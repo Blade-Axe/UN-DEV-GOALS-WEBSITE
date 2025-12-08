@@ -1,17 +1,15 @@
-[
-    {
-        "pageTitle": "Subscribe to our newsletter",
-        "legend": "Contact Form",
-        "firstNameLabel": "First Name:*",
-        "firstNameInnerLabel": "Your Name...",
-        "lastNameLabel": "Last Name:*",
-        "lastNameInnerLabel": "Your last name...",
-        "emailLabel": "Email:*",
-        "emailInnerLabel": "Your Email...",
-        "userSubmission": "Comments:*",
-        "userSubmissionInnerLabel": "Enter a comment...",
-        "requiredFieldLabel": "Required Field",
-        "submitBtn": "Send Message",
-        "link": "subscribe"
-    }
-]
+{
+    "pageTitle": "Subscribe to our newsletter",
+    "legend": "Contact Form",
+    "firstNameLabel": "First Name:*",
+    "firstNameInnerLabel": "Your Name...",
+    "lastNameLabel": "Last Name:*",
+    "lastNameInnerLabel": "Your last name...",
+    "emailLabel": "Email:*",
+    "emailInnerLabel": "Your Email...",
+    "userSubmission": "Comments:*",
+    "userSubmissionInnerLabel": "Enter a comment...",
+    "requiredFieldLabel": "Required Field",
+    "submitBtn": "Send Message",
+    "link": "subscribe"
+}
