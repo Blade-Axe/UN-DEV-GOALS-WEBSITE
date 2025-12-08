@@ -2,15 +2,21 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const routes = require('./routes');
+const { query } = require('express-validator');
 const { body, validationResult } = require("express-validator");
 const fs = require('fs');
+
+const oneDay = 1000 * 60 * 60 * 24;
 
 // Set the view engine to EJS
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // Set up static file serving
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'),{
+    maxAge: oneDay 
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -33,7 +39,15 @@ app.get(routes.subscribe, (req, res) => {
     res.render('subscribe', { title: 'SUBSCRIBE' });
 });
 
-app.post(routes.subscribe, (req, res) => {
+app.post(routes.subscribe, [
+    body("firstName").notEmpty().withMessage("First name is required"),
+    body("lastName").notEmpty().withMessage("Last name is required"),
+    body("userEmail").isEmail().withMessage("Invalid email address")
+], (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()){
+        return res.status(400).json({ errors: errors.array() });
+    }
     console.log(req.body);
     const newSubscriber = {
         firstName: req.body.firstName,

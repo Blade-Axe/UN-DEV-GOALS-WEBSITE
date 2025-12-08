@@ -1,24 +1,28 @@
 <nav>
-    <ul id="nav-elements" class="unselectable">
+    <div id="nav-elements" class="unselectable">
         <div class="nav-left">
             <i id="hamburger" class="fa-solid fa-bars"></i>
-            <label class="brand unselectable"><a href="<%= routes.home %>">UN DEV GOALS</a></label>
+            <label id="brand-label" class="brand unselectable">
+                <a id="brand-link" href="<%= routes.home %>"></a>
+            </label>
         </div>
         <div id="nav-menu-container">
             <div class="nav-central">
-                <li class="nav-item">
-                    <a class="nav-link <%= currentPath === routes.home ? 'active' : '' %>" href="<%= routes.home %>">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <%= currentPath === routes.team ? 'active' : '' %>" href="<%= routes.team %>">The Team</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <%= currentPath === routes.goals ? 'active' : '' %>" href="<%= routes.goals %>">Goals</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <%= currentPath === routes.subscribe ? 'active' : '' %>" href="<%= routes.subscribe %>">Subscribe</a>
-                </li>
+                <ul>
+                    <li class="nav-item">
+                        <a id="home-link" class="nav-link <%= currentPath === routes.home ? 'active' : '' %>" href="<%= routes.home %>"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="team-link" class="nav-link <%= currentPath === routes.team ? 'active' : '' %>" href="<%= routes.team %>"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="goals-link" class="nav-link <%= currentPath === routes.goals ? 'active' : '' %>" href="<%= routes.goals %>"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="subscribe-link" class="nav-link <%= currentPath === routes.subscribe ? 'active' : '' %>" href="<%= routes.subscribe %>"></a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </ul>
+    </div>
 </nav>

@@ -18,6 +18,7 @@
   --footer-background: #333333;
   --accent: #f5c07b;
   --accent-plus: #f5ed7b;
+  --white: white;
 }
 html{
   height: 100%;
@@ -81,7 +82,7 @@ h2.water-h2, h2.climate-h2, h2.energy-h2 {
   margin: 8px;
   border: none;
   background-color: var(--nav-capsule-background);
-  color: #000000;
+  color: var(--text-colour-black);
   font-weight: 800;
   font-size: 0.85em;
   text-transform: uppercase;
@@ -184,7 +185,7 @@ h3.goal-h3{
   margin: 12px auto 8px;
   border: none;
   background-color: var(--nav-capsule-background);
-  color: #000000;
+  color: var(--text-colour-black);
   font-weight: 800;
   font-size: 0.85em;
   text-transform: uppercase;
@@ -244,7 +245,7 @@ button.index-btn{
   margin-top: 8px;
   border: none;
   background-color: var(--nav-capsule-background);
-  color: #000000;
+  color: var(--text-colour-black);
   font-weight: 800;
   font-size: 0.85em;
   text-transform: uppercase;
@@ -267,7 +268,7 @@ nav{
   padding: 40px;
   background-color: var(--nav-background);
   z-index: 999;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+  box-shadow: 0 2px 5px var(--box-shadow); 
 }
 #nav-elements{
   width: 100%;
@@ -411,8 +412,8 @@ footer{
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  background-color: white;
-  border-top: 1px solid rgba(0,0,0,0.05);
+  background-color: var(--white);
+  border-top: 1px solid var(--box-shadow);
 }
 
 .card-content h2 {
@@ -435,7 +436,7 @@ footer{
 .card-content span.card-btn {
   text-decoration: none;
   font-weight: 700;
-  color: #000; /* Or define a variable like var(--primary-color) */
+  color: var(--text-colour); /* Or define a variable like var(--primary-color) */
   background-color: var(--nav-capsule-background);
   padding: 8px 16px;
   border-radius: 20px;
@@ -666,6 +667,7 @@ form{
   display: flex;
 }
 input[type="text"], textarea {
+  outline: none;
   width: 95%;
   padding: 15px;
   margin-top: 0;
@@ -673,7 +675,7 @@ input[type="text"], textarea {
   margin-left: 5px;
   margin-right: 5px;
   resize: vertical;
-  border-color: dodgerblue;
+  border-color: var(--nav-capsule-background-hover);
   border-radius: 5px;
   font-size: medium;
   word-spacing: 4px;
@@ -692,12 +694,12 @@ fieldset{
   margin-left: auto;
   margin-right: auto;
   width: 92%;
-  border: 3px solid #a6a0ba;
+  border: 3px solid var(--nav-capsule-background-hover);
   border-radius: 5px;
 }
 input[type="submit"]{
-  background-color: #d81e5b;
-  color: white;
+  background-color: var(--nav-capsule-background);
+  color: var(--text-colour-black);
   margin-top: 2%;
   margin-bottom: 2%;
   margin-left: 40%;
@@ -708,7 +710,10 @@ input[type="submit"]{
   padding-right: 10px;
   font-weight: 700;
   font-size: 16px;
-  border: 2px solid #b8195a;
+  border: 2px solid var(--nav-capsule-background-hover);
   min-width: 150px;
   border-radius: 10px;
+}
+#userSubmission{
+  height:170px
 }

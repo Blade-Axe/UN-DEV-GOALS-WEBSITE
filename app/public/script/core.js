@@ -6,31 +6,22 @@ function getRoute(key) {
     return '#';
 }
 
-if(document.getElementById("date")){
-    let myDate = new Date();
-    let todaysDate = myDate.toDateString();
-    document.querySelector('#date').innerHTML = 'Today is ' + todaysDate;
+async function fetchWithCache(url) {
+    // Check if data exists in LocalStorage
+    const cachedData = localStorage.getItem(url);
+    
+    if (cachedData) {
+        // If found return it
+        return JSON.parse(cachedData);
+    }
 
-    const dateClass = document.getElementById("date");
-    dateClass.classList.add("date");
+    // If not found, fetch from network
+    const response = await fetch(url);
+    const data = await response.json();
 
-    let newPara = document.createElement('p');
-    newPara.textContent = "Hello GWNYS members!";
-
-    let sectionElement = document.querySelector('section');
-    sectionElement.parentNode.insertBefore(newPara, sectionElement);
-    newPara.classList.add('newpara')
-
-
-
-    let newList = document.createElement('li');
-    newList.classList.add("newList")
-    newList.textContent = "Helps improve blood circulation"
-
-
-    let articleElement = document.querySelector("main article ul");
-    articleElement.insertBefore(newList, articleElement.lastElementChild);
-    articleElement.removeChild(articleElement.lastElementChild)
+    // Save to LocalStorage for next time
+    localStorage.setItem(url, JSON.stringify(data));
+    return data;
 }
 
 //NAV BAR CODE
@@ -51,11 +42,34 @@ if(document.getElementById("nav-menu-container")){
         }
     }
 
-    var checkWindowSize = window.matchMedia("(min-width: 786px)")
+    var checkWindowSize = window.matchMedia("(min-width: 820px)")
     navBarFix(checkWindowSize);
     checkWindowSize.addEventListener("change", function(){
         navBarFix(checkWindowSize);
     });
+
+    fetchWithCache('/data/nav.json') 
+        .then(response => response.json())
+        .then(data => {
+            // 1. Brand Name
+            const brandLink = document.getElementById('brand-link');
+            if(brandLink) brandLink.textContent = data.brand;
+
+            // 2. Navigation Links
+            const homeLink = document.getElementById('home-link');
+            if(homeLink) homeLink.textContent = data.home;
+
+            const teamLink = document.getElementById('team-link');
+            if(teamLink) teamLink.textContent = data.team;
+
+            const goalsLink = document.getElementById('goals-link');
+            if(goalsLink) goalsLink.textContent = data.goals;
+
+            const subscribeLink = document.getElementById('subscribe-link');
+            if(subscribeLink) subscribeLink.textContent = data.subscribe;
+        })
+        .catch(error => console.error('Error loading nav content:', error));
+        
 }
 
 if(document.getElementById("subscribeForm")){
@@ -67,13 +81,25 @@ if(document.getElementById("subscribeForm")){
     let confirmMessage = document.getElementById("confirmMessage");
 
     document.addEventListener("DOMContentLoaded", () => {
-        fetch('/content.json')
-            .then(response => response.json())
-            .then(data => {
-                document.querySelector('h2').textContent = data.pageTitle;
-                document.querySelector('label[for="firstName"]').textContent = data.firstNameLabel;
-                // ... apply other text ...
-            });
+        fetch('/data/subscribe.json') // Make sure this path matches where you saved the JSON file
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('pageTitle').textContent = data.pageTitle;
+            document.getElementById('formLegend').textContent = data.legend;
+            document.querySelector('label[for="firstName"]').textContent = data.firstNameLabel;
+            document.getElementById('firstName').placeholder = data.firstNameInnerLabel;
+            document.querySelector('label[for="lastName"]').textContent = data.lastNameLabel;
+            document.getElementById('lastName').placeholder = data.lastNameInnerLabel;
+            document.querySelector('label[for="userEmail"]').textContent = data.emailLabel;
+            document.getElementById('userEmail').placeholder = data.emailInnerLabel;
+            document.querySelector('label[for="userSubmission"]').textContent = data.userSubmission;
+            document.getElementById('userSubmission').placeholder = data.userSubmissionInnerLabel;
+
+            document.getElementById('submitBtn').value = data.submitBtn; // For buttons, use .value
+            document.getElementById('reqFieldLabel').textContent = data.requiredFieldLabel;
+        })
+        .catch(error => console.error('Error loading content:', error));
+        
     });
 
     subscribeForm.addEventListener("submit", (e)=>{
@@ -141,6 +167,23 @@ if(document.getElementById("team-section")){
         .catch(error => console.error("Error fetching JSON data:", error));
     })
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const footerSection = document.getElementById('main-footer');
+    
+    if(footerSection){
+        fetch('/data/footer.json')
+            .then(response => response.json())
+            .then(data => {
+                const para = document.createElement("p");
+                
+                para.textContent = data.text;
+                
+                footerSection.appendChild(para);
+            })
+            .catch(error => console.error("Error fetching Footer JSON:", error));
+    }
+});
 
 // Fetches JSON and makes articles for index hero element
 if(document.getElementById("hero")){

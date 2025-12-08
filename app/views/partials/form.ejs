@@ -1,0 +1,26 @@
+<section>
+    <div class="container">
+        <h2 id="pageTitle"></h2>
+        <form method="post" action="<%= routes.subscribe %>" id="subscribeForm">
+            <fieldset>
+                <legend id="formLegend"></legend>
+                <!-- First Name -->
+                <label class="formLabel" for="firstName"></label>
+                <input type="text" id="firstName" name="firstName" required>
+                <!-- Last Name -->
+                <label class="formLabel" for="lastName"></label>
+                <input type="text" id="lastName" name="lastName" required>
+                <!-- Email -->
+                <label class="formLabel" for="userEmail"></label>
+                <input type="text" id="userEmail" name="userEmail" required>
+                <!-- Comments -->
+                <label class="formLabel" for="userSubmission"></label>
+                <textarea id="userSubmission" name="userSubmission" required></textarea>
+                <!-- Submit btn -->
+                <input type="submit" id="submitBtn" value="">
+                <!-- Replaceable text -->
+                <p id="confirmMessage"><span id="reqFieldLabel"></span></p>
+            </fieldset>
+        </form>
+    </div> 
+</section>
