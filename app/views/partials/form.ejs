@@ -1,23 +1,23 @@
 <section>
     <div class="container">
-        <h2 id="pageTitle"></h2>
+        <h2 id="pageTitle"><%= content.pageTitle %></h2>
         <form method="post" action="<%= routes.subscribe %>" id="subscribeForm">
             <fieldset>
-                <legend id="formLegend"></legend>
+                <legend id="formLegend"><%= content.legend %></legend>
                 <!-- First Name -->
-                <label class="formLabel" for="firstName"></label>
-                <input type="text" id="firstName" name="firstName" required>
+                <label class="formLabel" for="firstName"><%= content.firstNameLabel %></label>
+                <input type="text" id="firstName" name="firstName" placeholder="<%= content.firstNameInnerLabel %>" required>
                 <!-- Last Name -->
-                <label class="formLabel" for="lastName"></label>
+                <label class="formLabel" for="lastName"><%= content.lastNameLabel %></label>
                 <input type="text" id="lastName" name="lastName" required>
                 <!-- Email -->
-                <label class="formLabel" for="userEmail"></label>
+                <label class="formLabel" for="userEmail"><%= content.emailLabel %></label>
                 <input type="text" id="userEmail" name="userEmail" required>
                 <!-- Comments -->
-                <label class="formLabel" for="userSubmission"></label>
-                <textarea id="userSubmission" name="userSubmission" required></textarea>
+                <label class="formLabel" for="userSubmission"><%= content.userSubmission %></label>
+                <textarea id="userSubmission" name="userSubmission"></textarea>
                 <!-- Submit btn -->
-                <input type="submit" id="submitBtn" value="">
+                <input type="submit" id="submitBtn" value="<%= content.submitBtn %>">
                 <!-- Replaceable text -->
                 <p id="confirmMessage"><span id="reqFieldLabel"></span></p>
             </fieldset>

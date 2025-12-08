@@ -5,8 +5,9 @@
     <main>
         <div id="content-wrap">
             <%- include('partials/nav'); %>
-            <h2 id="team-title">Meet the Team</h2>
-            <section id="team-section"></section>
+            <section id="team-section">
+                 <% teamMembers.forEach(function(member) { %>
+            </section>
             <%- include('partials/footer'); %>
         </div>
     </main>

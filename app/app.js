@@ -5,17 +5,41 @@ const routes = require('./routes');
 const { query } = require('express-validator');
 const { body, validationResult } = require("express-validator");
 const fs = require('fs');
+const nodemailer = require("nodemailer");
+const dotenv = require("dotenv");
+dotenv.config();
 
-const oneDay = 1000 * 60 * 60 * 24;
+const navData = JSON.parse(fs.readFileSync(path.join(__dirname, 'public/data/nav.json'), 'utf8'));
+const footerData = JSON.parse(fs.readFileSync(path.join(__dirname, 'public/data/footer.json'), 'utf8'));
+
+const heroData = JSON.parse(fs.readFileSync(path.join(__dirname, 'public/data/hero.json'), 'utf8'));
+const teamData = JSON.parse(fs.readFileSync(path.join(__dirname, 'public/data/team.json'), 'utf8'));
+const goalsData = JSON.parse(fs.readFileSync(path.join(__dirname, 'public/data/goals.json'), 'utf8'));
+const subscribeData = JSON.parse(fs.readFileSync(path.join(__dirname, 'public/data/subscribe.json'), 'utf8'));
+
+const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+        user: process.env.EMAIL,
+        pass: process.env.EMAILPASS
+    }
+})
 
 // Set the view engine to EJS
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // Set up static file serving
-app.use(express.static(path.join(__dirname, 'public'),{
-    maxAge: oneDay 
-}));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use((req, res, next) => {
+    res.locals.routes = routes;
+    res.locals.currentPath = req.path;
+    
+    res.locals.nav = navData; 
+    res.locals.footer = footerData; 
+    next();
+});
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -28,15 +52,29 @@ app.use((req, res, next) => {
 
 // Basic Approach: Render EJS template with static data
 app.get(routes.home, (req, res) => {
-    res.render('index', {title: 'UN DEV GOALS'});
+    const indexCards = JSON.parse(fs.readFileSync(path.join(__dirname, 'public/data/index-cards.json'), 'utf8'));
+    res.render('index', 
+    {
+        title: 'UN DEV GOALS',
+        hero: heroData,
+        cards: indexCards
+    });
 });
 
 app.get(routes.team, (req, res) => {
-    res.render('team', { title: 'THE TEAM' });
+    res.render('team', 
+    {
+        title: 'THE TEAM',
+        teamMembers: teamData 
+    });
 });
 
 app.get(routes.subscribe, (req, res) => {
-    res.render('subscribe', { title: 'SUBSCRIBE' });
+    res.render('subscribe',
+        {
+            title: 'SUBSCRIBE',
+            content: subscribeData
+        });
 });
 
 app.post(routes.subscribe, [
@@ -55,6 +93,13 @@ app.post(routes.subscribe, [
         userEmail: req.body.userEmail,
         comments: req.body.userSubmission 
     };
+
+    transporter.sendMail({
+        from: process.env.EMAIL,
+        to: req.body.userEmail,
+        subject: `Thank you for subscribing ${req.body.firstName}!`,
+        text: `Your are now subscribed to the UN DEV Policy makers list!`
+    })
 
     const filePath = path.join(__dirname, 'data.json');
 
@@ -85,7 +130,11 @@ app.post(routes.subscribe, [
 });
 
 app.get(routes.goals, (req, res) => {
-    res.render('goals', { title: 'GOALS' });
+    res.render('goals', 
+        { 
+            title: 'GOALS',
+            content: goalsData
+        });
 });
 
 app.get(routes.cleanWater, (req, res) => {

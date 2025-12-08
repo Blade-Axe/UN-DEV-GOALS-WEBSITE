@@ -3,23 +3,23 @@
         <div class="nav-left">
             <i id="hamburger" class="fa-solid fa-bars"></i>
             <label id="brand-label" class="brand unselectable">
-                <a id="brand-link" href="<%= routes.home %>"></a>
+                <a id="brand-link" href="<%= routes.home %>"><%= nav.brand %></a>
             </label>
         </div>
         <div id="nav-menu-container">
             <div class="nav-central">
                 <ul>
                     <li class="nav-item">
-                        <a id="home-link" class="nav-link <%= currentPath === routes.home ? 'active' : '' %>" href="<%= routes.home %>"></a>
+                        <a id="home-link" class="nav-link <%= currentPath === routes.home ? 'active' : '' %>" href="<%= routes.home %>"><%= nav.home %></a>
                     </li>
                     <li class="nav-item">
-                        <a id="team-link" class="nav-link <%= currentPath === routes.team ? 'active' : '' %>" href="<%= routes.team %>"></a>
+                        <a id="team-link" class="nav-link <%= currentPath === routes.team ? 'active' : '' %>" href="<%= routes.team %>"><%= nav.team %></a>
                     </li>
                     <li class="nav-item">
-                        <a id="goals-link" class="nav-link <%= currentPath === routes.goals ? 'active' : '' %>" href="<%= routes.goals %>"></a>
+                        <a id="goals-link" class="nav-link <%= currentPath === routes.goals ? 'active' : '' %>" href="<%= routes.goals %>"><%= nav.goals %></a>
                     </li>
                     <li class="nav-item">
-                        <a id="subscribe-link" class="nav-link <%= currentPath === routes.subscribe ? 'active' : '' %>" href="<%= routes.subscribe %>"></a>
+                        <a id="subscribe-link" class="nav-link <%= currentPath === routes.subscribe ? 'active' : '' %>" href="<%= routes.subscribe %>"><%= nav.subscribe %></a>
                     </li>
                 </ul>
             </div>

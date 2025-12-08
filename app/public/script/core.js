@@ -6,24 +6,6 @@ function getRoute(key) {
     return '#';
 }
 
-async function fetchWithCache(url) {
-    // Check if data exists in LocalStorage
-    const cachedData = localStorage.getItem(url);
-    
-    if (cachedData) {
-        // If found return it
-        return JSON.parse(cachedData);
-    }
-
-    // If not found, fetch from network
-    const response = await fetch(url);
-    const data = await response.json();
-
-    // Save to LocalStorage for next time
-    localStorage.setItem(url, JSON.stringify(data));
-    return data;
-}
-
 //NAV BAR CODE
 if(document.getElementById("nav-menu-container")){
     document.addEventListener('DOMContentLoaded', () => {
@@ -48,8 +30,7 @@ if(document.getElementById("nav-menu-container")){
         navBarFix(checkWindowSize);
     });
 
-    fetchWithCache('/data/nav.json') 
-        .then(response => response.json())
+        (response => response.json())
         .then(data => {
             // 1. Brand Name
             const brandLink = document.getElementById('brand-link');
@@ -81,8 +62,7 @@ if(document.getElementById("subscribeForm")){
     let confirmMessage = document.getElementById("confirmMessage");
 
     document.addEventListener("DOMContentLoaded", () => {
-        fetch('/data/subscribe.json') // Make sure this path matches where you saved the JSON file
-        .then(response => response.json())
+        then(response => response.json())
         .then(data => {
             document.getElementById('pageTitle').textContent = data.pageTitle;
             document.getElementById('formLegend').textContent = data.legend;
@@ -133,14 +113,13 @@ if(document.getElementById("subscribeForm")){
 
 // Fetches JSON and makes articles for team page
 if(document.getElementById("team-section")){
-    let teamJSON = "/data/team.json";
     let teamSection = document.querySelector('section');
 
     document.addEventListener('DOMContentLoaded', ()=>{
-        fetch(teamJSON)
-            .then(result => result.json())
+            then(result => result.json())
             .then (resultData =>{ console.log(resultData);
             for (item of resultData){
+                const teamHeader = document.createElement("h2");
                 const teamArticles = document.createElement("article");
                 const pictureElement = document.createElement("img");
                 const nameHeading = document.createElement("h3");
@@ -149,6 +128,10 @@ if(document.getElementById("team-section")){
                 const respPara = document.createElement("p");
 
                 teamArticles.classList.add("team");
+
+                teamHeader.textContent.item.teamHeader;
+                teamHeader.classList.add("#team-title")
+                teamArticles.appendChild(teamHeader);
 
                 teamSection.appendChild(teamArticles)
                 pictureElement.src = item.image;
@@ -176,8 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const footerSection = document.getElementById('main-footer');
     
     if(footerSection){
-        fetch('/data/footer.json')
-            .then(response => response.json())
+            then(response => response.json())
             .then(data => {
                 const para = document.createElement("p");
                 
@@ -191,12 +173,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Fetches JSON and makes articles for index hero element
 if(document.getElementById("hero")){
-    let JSON = "/data/hero.json";
     let Section = document.querySelector('section');
 
     document.addEventListener('DOMContentLoaded', ()=>{
-        fetch(JSON)
-            .then(result => result.json())
+            then(result => result.json())
             .then (resultData =>{
             for (const item of resultData){
                 const Articles = document.createElement("article");
@@ -238,11 +218,9 @@ if(document.getElementById("hero")){
 const cardContainer = document.getElementById("dynamic-goals-container");
 
 if(cardContainer){
-    const jsonPath = "/data/index-cards.json";
 
     document.addEventListener('DOMContentLoaded', () => {
-        fetch(jsonPath)
-            .then(result => result.json())
+            then(result => result.json())
             .then(resultData => { 
                 
                 resultData.forEach(item => {
@@ -408,15 +386,12 @@ if (document.getElementById("energy-section")) {
 // Fetch JSON and build the Goals section dynamically
 if (document.getElementById("goals-section")) {
 
-    const fileJSON = "/data/goals.json";
     const goalsSection = document.getElementById("goals-section");
     const titleH1 = document.getElementById("goal-title");
     const subtitleH2 = document.getElementById("goal-subtitle");
 
     document.addEventListener("DOMContentLoaded", () => {
-
-        fetch(fileJSON)
-            .then(res => res.json())
+            then(res => res.json())
             .then(data => {
                 const goals = data[0];
                 titleH1.textContent = goals.h1;
