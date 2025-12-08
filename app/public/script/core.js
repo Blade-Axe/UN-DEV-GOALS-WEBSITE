@@ -103,6 +103,10 @@ if(document.getElementById("subscribeForm")){
     });
 
     subscribeForm.addEventListener("submit", (e)=>{
+        const routeKey = item["link"];
+
+        const finalUrl = getRoute(routeKey);
+
         e.preventDefault();
         const formBody = {
             firstName:firstName.value,
@@ -113,7 +117,7 @@ if(document.getElementById("subscribeForm")){
         const requestHeaders = {
             "Content-Type": "application/json"
         }
-        fetch('/subscribe',{
+        fetch(finalUrl,{
                 method: 'POST',
                 headers: requestHeaders,
                 body: JSON.stringify(formBody)

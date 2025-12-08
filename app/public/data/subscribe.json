@@ -10,5 +10,6 @@
     "userSubmission": "Comments:*",
     "userSubmissionInnerLabel": "Enter a comment...",
     "requiredFieldLabel": "Required Field",
-    "submitBtn": "Send Message"
+    "submitBtn": "Send Message",
+    "link": "subscribe"
 }
