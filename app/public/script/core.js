@@ -93,51 +93,7 @@ if(document.getElementById("subscribeForm")){
     })
 }
 
-// Fetches JSON and makes articles for team page
-if(document.getElementById("team-section")){
-    let teamJSON = "/data/team.json";
-    let teamSection = document.querySelector('section');
 
-    document.addEventListener('DOMContentLoaded', ()=>{
-        fetch(teamJSON)
-            .then(result => result.json())
-            .then (resultData =>{ console.log(resultData);
-            for (item of resultData){
-                //const teamHeader = document.createElement("h2");
-                const teamArticles = document.createElement("article");
-                const pictureElement = document.createElement("img");
-                const nameHeading = document.createElement("h3");
-                const roleHeading = document.createElement("h4");
-                const bioPara = document.createElement("p");
-                const respPara = document.createElement("p");
-
-                teamArticles.classList.add("team");
-
-                //teamHeader.textContent.item.teamHeader;
-                //teamHeader.classList.add("team-title")
-                //teamArticles.appendChild(teamHeader);
-
-                teamSection.appendChild(teamArticles)
-                pictureElement.src = item.image;
-                pictureElement.alt = item.alt;
-                teamArticles.appendChild(pictureElement);
-
-                nameHeading.textContent = item.name;
-                teamArticles.appendChild(nameHeading);
-
-                roleHeading.textContent = item.role;
-                teamArticles.appendChild(roleHeading);
-
-                bioPara.textContent = item.bio;
-                teamArticles.appendChild(bioPara);
-
-                respPara.textContent = item.resp;
-                teamArticles.appendChild(respPara);
-            }
-        })
-        .catch(error => console.error("Error fetching JSON data:", error));
-    })
-}
 
 // Fetches JSON and makes articles for index hero element
 if(document.getElementById("hero")){

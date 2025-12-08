@@ -7,6 +7,17 @@
             <%- include('partials/nav'); %>
             <h2 class="team-title"><%= teamHeader %></h2>
             <section id="team-section">
+                <div class="team-container">
+                    <% teamMembers.forEach(item => { %>
+                        <article class="team">
+                            <img src="<%= item.image %>" alt="<%= item.alt %>">
+                            <h3><%= item.name %></h3>
+                            <h4><%= item.role %></h4>
+                            <p><%= item.bio %></p>
+                            <p><%= item.resp %></p>
+                        </article>
+                    <% }); %>
+                </div>
             </section>
             <%- include('partials/footer'); %>
         </div>
