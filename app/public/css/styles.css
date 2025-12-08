@@ -17,6 +17,7 @@
   --nav-capsule-background-hover: #b1df74;
   --footer-background: #333333;
   --accent: #f5c07b;
+  --red-accent: #d9534f;
   --accent-plus: #f5ed7b;
   --white: white;
 }
@@ -662,58 +663,134 @@ footer{
     margin-bottom: 10px;
   } 
 }
-
-form{
+section.formContainer {
   display: flex;
-}
-input[type="text"], textarea {
-  outline: none;
-  width: 95%;
-  padding: 15px;
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-left: 5px;
-  margin-right: 5px;
-  resize: vertical;
-  border-color: var(--nav-capsule-background-hover);
-  border-radius: 5px;
-  font-size: medium;
-  word-spacing: 4px;
-  display: block;
-}
-label.formLabel{
-  display: block;
+  justify-content: center;
+  padding: 20px;
   width: 100%;
-  margin: 1%;
 }
-fieldset{
+
+.containerSub {
+  background-color: var(--sub-background-colour);
+  border-radius: 16px;
+  box-shadow: 0 4px 10px var(--box-shadow);
+  padding: 40px;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.containerSub:hover {
+  box-shadow: 0 8px 16px var(--box-shadow-large);
+}
+
+#pageTitle {
+  font-size: 2em;
+  font-weight: 700;
+  color: var(--text-colour);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#formLegend {
+  font-size: 1.1em;
+  color: var(--text-colour-hover);
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: 500;
+}
+#subscribeForm {
   display: flex;
-  flex-wrap: wrap;
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-left: auto;
-  margin-right: auto;
-  width: 92%;
-  border: 3px solid var(--nav-capsule-background-hover);
-  border-radius: 5px;
+  flex-direction: column;
+  width: 100%;
 }
-input[type="submit"]{
+
+.formItem {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.formLabel {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-colour);
+  font-size: 0.95em;
+  margin-left: 5px;
+}
+.formItem input[type="text"], 
+.formItem textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid transparent;
+  background-color: var(--main-background-colour);
+  border-radius: 12px;
+  font-size: 1em;
+  color: var(--text-colour);
+  transition: all 0.3s ease;
+  box-shadow: inset 0 1px 3px var(--box-shadow);
+}
+
+.formItem textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.formItem input[type="text"]:focus, 
+.formItem textarea:focus {
+  outline: none;
+  background-color: var(--white);
+  border-color: var(--nav-capsule-background-hover);
+  box-shadow: 0 0 0 4px rgba(202, 255, 133, 0.3);
+}
+
+#submitBtn {
+  margin-top: 10px;
+  padding: 1em 2.1em 1.1em;
+  border-radius: 16px;
+  border: none;
   background-color: var(--nav-capsule-background);
   color: var(--text-colour-black);
-  margin-top: 2%;
-  margin-bottom: 2%;
-  margin-left: 40%;
-  margin-right: 40%;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-weight: 700;
-  font-size: 16px;
-  border: 2px solid var(--nav-capsule-background-hover);
-  min-width: 150px;
-  border-radius: 10px;
+  font-weight: 800;
+  font-size: 1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0em -0.2rem 0em var(--nav-capsule-background-hover) inset;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
 }
-#userSubmission{
-  height:170px
+
+#submitBtn:hover {
+  background-color: var(--accent-plus);
+  box-shadow: 0em -0.2rem 0em var(--accent) inset;
+  transform: translateY(-2px);
+}
+
+#submitBtn:active {
+  transform: translateY(1px);
+}
+
+#confirmMessage {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 0.9em;
+  color: var(--text-colour-hover);
+}
+
+#reqFieldLabel {
+  color: var(--red-accent);
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 600px) {
+  .containerSub {
+    padding: 25px;
+    width: 95%;
+  }
+  
+  #pageTitle {
+    font-size: 1.6em;
+  }
 }

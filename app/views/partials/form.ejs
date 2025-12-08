@@ -1,26 +1,26 @@
-<section>
-    <div class="container">
+<section class="formContainer">
+    <div class="containerSub">
         <h2 id="pageTitle"><%= content.pageTitle %></h2>
         <form method="post" action="<%= routes.subscribe %>" id="subscribeForm">
-            <fieldset>
-                <legend id="formLegend"><%= content.legend %></legend>
-                <!-- First Name -->
+            <legend id="formLegend"><%= content.legend %></legend>
+            <div class="formItem">
                 <label class="formLabel" for="firstName"><%= content.firstNameLabel %></label>
                 <input type="text" id="firstName" name="firstName" placeholder="<%= content.firstNameInnerLabel %>" required>
-                <!-- Last Name -->
+            </div>
+            <div class="formItem">
                 <label class="formLabel" for="lastName"><%= content.lastNameLabel %></label>
                 <input type="text" id="lastName" name="lastName" placeholder="<%= content.lastNameInnerLabel %>" required>
-                <!-- Email -->
+            </div>
+            <div class="formItem">
                 <label class="formLabel" for="userEmail"><%= content.emailLabel %></label>
                 <input type="text" id="userEmail" name="userEmail" placeholder="<%= content.emailInnerLabel %>" required>
-                <!-- Comments -->
+            </div>
+            <div class="formItem">
                 <label class="formLabel" for="userSubmission"><%= content.userSubmission %></label>
                 <textarea id="userSubmission" name="userSubmission" placeholder="<%= content.userSubmissionInnerLabel %>"></textarea>
-                <!-- Submit btn -->
-                <input type="submit" id="submitBtn" value="<%= content.submitBtn %>">
-                <!-- Replaceable text -->
-                <p id="confirmMessage"><span id="reqFieldLabel"><%= content.requiredFieldLabel %></span></p>
-            </fieldset>
+            </div>
+            <input type="submit" id="submitBtn" value="<%= content.submitBtn %>">
+            <p id="confirmMessage"><span id="reqFieldLabel"><%= content.requiredFieldLabel %></span></p>
         </form>
     </div> 
 </section>

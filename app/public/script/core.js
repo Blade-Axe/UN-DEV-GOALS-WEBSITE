@@ -76,22 +76,38 @@ if(document.getElementById("subscribeForm")){
             "Content-Type": "application/json"
         }
         fetch(finalUrl,{
-                method: 'POST',
-                headers: requestHeaders,
-                body: JSON.stringify(formBody)
-            })
-            .then(response => response.json())
-            .then((responseData) => {
-                console.log(responseData);
-                confirmMessage.textContent=`Hi ${firstName.value}, your message has been received, we will contact you at ${userEmail.value}`;
-            })
-            .catch(error => {
+            method: 'POST',
+            headers: requestHeaders,
+            body: JSON.stringify(formBody)
+        })
+        .then(async response => {
+            const data = await response.json();
+            if (!response.ok){
+                const error = new Error(data.message || "Form Submission failed");
+                error.data = data;
+                throw error;
+            }
+            return data;
+        })
+        .then((responseData) => {
+            console.log(responseData);
+            confirmMessage.textContent=`Hi ${firstName.value}, your message has been received, we will contact you at ${userEmail.value}`;
+            subscribeForm.reset();
+        })
+        .catch(error => {
             console.error('Error:', error);
-            confirmMessage.textContent = "There was an error submitting your form.";
+            if (error.data && error.data.errors){
+                const errorMessages = error.data.errors.map(err => err.msg).join(", ");
+                confirmMessage.textContent = `Error: ${errorMessages}`;
+                confirmMessage.style.color = "red";
+            }
+            else{
+                confirmMessage.textContent = "There was an error submitting your form.";
+            }
         });
+    });
+};
         
-    })
-}
 
 
 
@@ -361,10 +377,10 @@ if (document.getElementById("goals-section")) {
                     const Button = document.createElement("button");
                     Button.classList.add("goal-button");
 
-                    const buttonText = goals[`button_${i}`] || goals.button || 'Learn more';
+                    const buttonText = goals[`button_${i}`] || goals.button;
                     let routeKey = goals[`button-link-${i}`];
 
-                    const finalUrl = SITE_ROUTES[routeKey] || '#'; 
+                    const finalUrl = SITE_ROUTES[routeKey]; 
 
                     Button.textContent = buttonText;
                     Button.addEventListener('click', () => {

@@ -1,15 +1,17 @@
 {
     "pageTitle": "Subscribe to our newsletter",
-    "legend": "Contact Form",
+    "legend": "Policy news daily!",
     "firstNameLabel": "First Name:*",
     "firstNameInnerLabel": "Your Name...",
     "lastNameLabel": "Last Name:*",
     "lastNameInnerLabel": "Your last name...",
     "emailLabel": "Email:*",
     "emailInnerLabel": "Your Email...",
-    "userSubmission": "Comments:*",
+    "userSubmission": "Comments:",
     "userSubmissionInnerLabel": "Enter a comment...",
-    "requiredFieldLabel": "Required Field",
+    "requiredFieldLabel": "*Required Field",
     "submitBtn": "Send Message",
-    "link": "subscribe"
+    "link": "subscribe",
+    "successMessage": "",
+    "failMessage": "Input wrong try again"
 }

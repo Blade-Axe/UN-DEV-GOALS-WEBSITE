@@ -76,9 +76,10 @@ app.get(routes.subscribe, (req, res) => {
 });
 
 app.post(routes.subscribe, [
-    body("firstName").notEmpty().withMessage("First name is required"),
-    body("lastName").notEmpty().withMessage("Last name is required"),
-    body("userEmail").isEmail().withMessage("Invalid email address")
+    body("firstName").trim().escape().notEmpty().withMessage("First name is required"),
+    body("lastName").trim().escape().notEmpty().withMessage("Last name is required"),
+    body("userEmail").trim().escape().isEmail().withMessage("Invalid email address"),
+    body("userSubmission").trim().escape()
 ], (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()){
