@@ -793,3 +793,8 @@ section.formContainer {
     font-size: 1.6em;
   }
 }
+h2.team-title{
+  font-size: 35px;
+  margin-top: 20px;
+  text-align: center;
+}
