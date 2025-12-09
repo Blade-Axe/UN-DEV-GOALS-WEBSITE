@@ -1,1 +1,15 @@
-<section id="dynamic-goals-container" class="card-grid"></section>
+<section id="dynamic-goals-container" class="card-grid">
+    <% cards.forEach(item => { %>
+        <a class="card" href="<%= routes[item.link] %>">
+            <div class="card-image">
+                <img src="<%= item.imageURL %>" alt="<%= item.alt %>">
+            </div>
+            
+            <div class="card-content">
+                <h2><%= item.h2 %></h2>
+                <p><%= item.p %></p>
+                <span class="card-btn"><%= item.fakeButtonText %></span>
+            </div>
+        </a>
+    <% }); %>
+</section>

@@ -1,5 +1,17 @@
 <header class="hero-banner">
   <div class="hero-text">
-    <section id="hero"></section>
+    <section id="hero">
+    <% hero.forEach(item => { %>
+        <article class="hero">
+            <img src="<%= item.image %>" alt="<%= item.alt %>">
+            <h1><%= item.h1 %></h1>
+            <p><%= item.para %></p>
+            
+            <button class="index-btn" onclick="window.location.href='<%= routes.goals %>'">
+                <%= item.button %>
+            </button>
+        </article>
+    <% }); %>
+    </section>
   </div>
 </header>
