@@ -455,9 +455,13 @@ footer{
   font-size: 200%;
 }
 
+.team-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 #team-section {
-  display: flex;
-  flex-wrap: wrap;
   text-align: center;
   height: auto;
   width: 90%;
@@ -471,19 +475,14 @@ footer{
 
 .team {
   padding: 10px;
-  display: inline-block;
   text-align: center;
-  height: auto;
+  min-height: 350px;
   width: 22%;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px;
   border-radius: 20px;
   box-shadow: 0 4px 4px 4px var(--box-shadow);
   background-color: var(--sub-background-colour);
   box-sizing: border-box;
-  font-size: auto;
 }
 
 .team img{

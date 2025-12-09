@@ -14,15 +14,15 @@
         "image": "/assets/empty.png",
         "alt": "A photo of Kevin Bursoly",
         "name": "Kevin Bursoly",
-        "role": "Null",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue ante ut sem tincidunt tincidunt.",
-        "resp": "Nulla tempor nulla urna, nec vehicula velit pellentesque ut. Sed urna mi, porta eu finibus id, pretium tincidunt quam. Integer hendrerit tellus non tempus laoreet. Aliquam erat volutpat."
+        "role": "Coordinator",
+        "bio": "Specialised in Frontend and assisted in coordinating during the project.",
+        "resp": "In charge of designing and implementing HTML, Javascript and CSS for the Teams page."
     },
     {
         "image": "/assets/macBacon.png",
         "alt": "A photo of Mac Bacon",
         "name": "Mac Bacon",
-        "role": "Created Goals Page",
+        "role": "Frontend Designer",
         "bio": "Created Goals Page and the site guide and managed the Trello board",
         "resp": ""
     },
